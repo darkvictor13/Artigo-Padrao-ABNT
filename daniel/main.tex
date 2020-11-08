@@ -1,0 +1,667 @@
+% abtex2-modelo-trabalho-academico.tex, v-1.9.7 laurocesar
+%% Copyright 2012-2018 by abnTeX2 group at http://www.abntex.net.br/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{times}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{listings}
+\usepackage[final]{pdfpages}
+% ---
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[num,overcite]{abntex2cite}	% Citações padrão ABNT
+\citebrackets[]
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+\lstset{
+	basicstyle=\tiny
+}
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+% TODO Mudar titulo
+\titulo{Ctrl P \\ Controle de Patrimônios}
+\autor{	Daniel Zonta Ojeda\\
+		Deivid Márlon Fernandes da Costa\\
+		Gabriel de Souza Padilha\\
+}
+\local{Foz do Iguaçu}
+\data{2019}
+%\orientador{Lauro César Araujo}
+%\coorientador{Equipe \abnTeX}
+\instituicao{%
+	Universidade do Oeste do Paraná 
+	\par
+	UNIOESTE
+%	\par
+%  Faculdade de Arquitetura da Informação
+%  \par
+%  Programa de Pós-Graduação
+}
+\tipotrabalho{Trabalho Acadêmico}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Documentação do projeto para gerenciamento de patrimônios criado pelos alunos do curso de graduação de ciências da computação da UNIOESTE do ano de 2019 na disciplina de Introdução a Ciências da Computação.}
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+
+\definecolor{blue}{RGB}{0,0,0}
+% \definecolor{blue}{RGB}{41,5,195}
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\setlength{\@fptop}{5pt} % Set distance from top of page to first float
+\makeatother
+% ---
+
+% ---
+% Possibilita criação de Quadros e Lista de quadros.
+% Ver https://github.com/abntex/abntex2/issues/176
+%
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+% \renewcommand{\ABNTEXchapterfont}{\fontseries{b}\selectfont}
+% \renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+% \renewcommand{\ABNTEXsectionfont}{\selectfont}
+% \renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+% \renewcommand{\ABNTEXsubsectionfont}{\fontseries{b}\selectfont}
+% \renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+
+% resumo em português
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+% TODO RESUMO
+\begin{resumo}
+Este relatório está sendo criado para documentar o modo de utilização do sistema de controle patrimônial CtrlP. O protótipo utiliza um Raspberry Pi 3 vinculado a um sensor de radio frequência(RFID), capaz de registrar o momento em que uma tag está próxima. Este sistema de sensor e tag será utilizado para monitorar a movimentação de patrimônios uma empresa, e também irá atualizar automaticamente os dados registrados em tempo real. Os dados registrados serão salvos no banco de dados online \emph{Firebase} e estarão disponíveis para visualização para os administradores do sistema.
+
+ \textbf{Palavras-chave}: RFID. gerenciamento de patrimônios. raspberry pi 3.
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+This report is being created to document the way to use the patrimony control system by CtrlP. The prototype uses a Raspberry Pi 3 linked to a radiofrequency sensor (RFID), able to register the moment where the tag is close. This tag-sensor system will be used to monitor the movimentation of patromny in a company. The prototype will automatically record the data in real time. The data will be stored in the online database \emph{Firebase} and will be available to the system administrator.
+
+   \vspace{\onelineskip}
+ 
+   \noindent 
+   \textbf{Keywords}: RFID. patromony management. raspberry pi 3.
+ \end{otherlanguage*}
+\end{resumo}
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+% \begin{siglas}
+%   \item[RFID] Identificação por Radiofrequência 
+% \end{siglas}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
+% ----------------------------------------------------------
+\chapter{Introdução}
+
+Reduzir os custos, e, por consequência, aumentar o capital, é um dos maiores desafios enfrentados por uma empresa. Em meio a competitividade do mercado, o ideal seria não comprometer a qualidade do produto ou serviço prestado. Portanto, deve-se buscar reduzir os custos de operação.\cite{copastur2016}
+
+% TODO Recursos perdidos do PTI
+
+Os bens de uma empresa, em conjunto, representam um valor significativo. Razão pela qual é preciso adotar métodos que protejam este capital. Tal método precisa:
+
+\begin{itemize}
+	\item Ser confiável;
+	\item Ser transparente;
+	\item Informar aos usuários onde determinados patrimônios estão;
+	\item Permitir à administradores adicionar, remover e editar os dados de patrimônios;
+	\item Permitir que usuários possam registrar ocorrências aos patrimônios.
+	\item Não necessitar de entrada do usuário para continuamente rastrear o objeto;
+	\item Ser financeiramente viável;
+\end{itemize}
+
+Uma possível solução para lidar com estes problemas, é o RFID (\emph{Radio Frequency Identification}).\cite{narcisoRFID} Utilizando sensores RFID, conectados a uma Raspberry Pi, é possível criar um sistema que atenda a todos estes requisitos e que seja de baixo custo. Tal custo torna o sistema acessível para empresas de todo porte, melhorando seu fluxo de equipamento e tornando o ambiente de trabalho funcional e otimizado.
+
+
+
+\chapter{Sobre o projeto}
+
+O controle patrimonial pode ser entendido como o gerenciamento de todo o controle patrimonial de uma empresa, servindo para prevenir complicações para o fluxo de caixa.\cite{marcia2017patrimonial} Devido aos patrimônios constituírem capital passivo, algumas adversidades como a ausência de registros na movimentação e extravios acabam gerando divergências administrativas e na contabilidade. Ter um sistema de controle patrimonial possibilita a empresa reduzir gastos e otimizar processos de compras. 
+
+Porém, realizar o controle manual de um elevado número de patrimônios, registrando cada movimentação e alteração é uma tarefa exaustiva, divergindo recursos que poderiam serem aplicados em outras áreas. Nos resta então, automatizar este processo.
+
+A automatização de tal controle patrimonial irá potencialmente gerar menos custos e melhor aproveitamento do tempo, por meio da integração de sistemas e da substituição de atividades humanas por automáticas.\cite{marcus2016automatizar} Uma tecnologia viável para realizar esta automatização são sensores RFID ligados à uma Raspberry Pi.
+
+Para o rastreamento dos objetos ocorrer, o objeto a ser rastreado deve receber uma etiqueta (ou tag) eletrônica de RFID, e para que a sua leitura e identificação aconteçam, devem ser instaladas leitores de RFID no local onde o item será acondicionado.\cite{rfidbrasil} Muitos tipos de tags RFID existem, podendo serem divididas em duas classes: ativas e passivas. As tags são compostas de uma antena, um semicondutor acoplado à antena e uma capsula. No caso das tags ativas, é necessário também a fonte de energia.\cite{want2006introduction} Uma grande inovação recente foi o emprego de tags passivas de RFID tornando-se, assim,  uma solução de baixo custo, podendo ser amplamente utilizado por diversos segmentos do mercado.\cite{rfidbrasil}. Estas serão as tags utilizadas, já que é inviável utilizar uma bateria para cada objeto a ser rastreado.
+
+\chapter{Instruções de uso}
+
+\section{Tipos de login}
+
+O sistema pode possuir três tipos diferentes de login: administrador, funcionário e usuário público. As diferenças são:
+
+O administrador:
+
+\begin{itemize}
+	\item Pode editar, adicionar e remover usuários;
+	\item Pode editar, adicionar e remover patrimônios;
+	\item Pode editar, adicionar e remover ocorrências;
+	\item Tem acesso a movimentação de patrimônios;
+\end{itemize}
+
+O funcionário é a pessoa cuja responsabilidade é a de verificar e resolver ocorrências.
+
+\begin{itemize}
+	\item Pode visualizar ocorrências;
+	\item Pode marcar uma ocorrência como resolvida;
+\end{itemize}
+
+E o usuário público é classificado como qualquer pessoa com acesso à empresa, tendo a opção de criar ocorrências caso exista algum problema com um patrimônio
+
+\begin{itemize}
+	\item Pode criar ocorrências;
+\end{itemize}
+
+\section{Administrador}
+
+\subsection{Criando usuários}
+
+O menu de usuários nos da opções para criar e listar usuários.
+
+Para criar um usuário, basta selecionar a opção "Criar Usuário" no menu de usuários, e digitar as informações necessárias.
+
+A lista de usuários fornece Nome, Email e Departamento de todos os usuários cadastrados, como indicado na figura \ref{listausuarios}.
+
+%%\begin{figure}[htb]
+%%	\centering
+%%	\caption{\label{listausuarios} Exemplo de listagem de usuarios.}
+%%	\includegraphics[width=.7\textwidth]{img/listausuarios}
+%%	\legend{Fonte: Os autores.}
+%%\end{figure}
+
+\subsection{Gerenciando patrimônios}
+
+O menu dos patrimônios nos dá opções para criar e editar patrimônios.
+
+Para criar um novo patrimônio, basta selecionar "Criar Patrimônio", e então fornecer o número e a descrição do patrimônio.
+
+Para editar um patrimônio, selecione "Edição de Patrimônios" no menu de patrimônios, e então selecionar da lista de patrimônios qual será editado, como ilustrado na figura \ref{editarpatrimonio}.
+
+%%\begin{figure}[htb]
+%%	\centering
+%%	\caption{\label{editarpatrimonio} Menu para edição de patrimônio.}
+%%	\includegraphics[width=.7\textwidth]{img/editarpatrimonio}
+%%	\legend{Fonte: Os autores.}
+%%\end{figure}
+
+\subsection{Gerenciando ocorrências}
+
+O menu ocorrências contém 3 opções: Criar ocorrência, Minhas ocorrências e Gestão de ocorrências. 
+
+Para criar uma nova ocorrência, é necessário o número do patrimônio e uma descrição da ocorrência.
+
+Minhas ocorrências gera uma lista de todas as ocorrências, seus patrimônios e sua situação, conforme ilustrado na figura \ref{minhasocorrencias}.
+
+%%\begin{figure}[htb]
+%%	\centering
+%%	\caption{\label{minhasocorrencias} Lista de ocorrências.}
+%%	\includegraphics[width=.7\textwidth]{img/minhasocorrencias}
+%%	\legend{Fonte: Os autores.}
+%%\end{figure}
+
+
+
+A gestão de ocorrências nos dá uma lista mais detalhada de todas as ocorrências, separadas pela sua situação, conforme figura \ref{gestaoocorrencias}.
+
+%\begin{figure}[htb]
+%	\centering
+%	\caption{\label{gestaoocorrencias} Menu de gestão de ocorrências.}
+%	\includegraphics[width=.7\textwidth]{img/gestaoocorrencias}
+%	\legend{Fonte: Os autores.}
+%\end{figure}
+
+\section{Acesso de manutenção}
+
+O login de manutenção dá acesso ao menu "Minhas tarefas", onde o funcionário pode checar as ocorrências pendentes e atendê-las. 
+
+%\begin{figure}[htb]
+%	\centering
+%	\caption{\label{minhastarefas} Menu "Minhas tarefas".}
+%	\includegraphics[width=.7\textwidth]{img/minhastarefas}
+%	\legend{Fonte: Os autores.}
+%\end{figure}
+
+
+\chapter{Especificações Técnicas}
+
+\section{Hardware}
+
+\subsection{Raspberry}
+
+O modelo da Raspberry utilizada é a Raspberry Pi 3 Model B,, ilustrada na figura \ref{raspberry}. Ela possui as seguintes especificações técnicas:\cite{siteraspberry}
+
+\begin{itemize}
+	\item Quad Core 1.2 GHz Broadcom BCM2837 64bit CPU;
+	\item 1GB Ram;
+	\item BCM43438 wireless LAN e Bluetooth Low Energy (BLE) on board;
+	\item 100 Base Ethernet;
+	\item 40-pin extended GPIO;
+	\item 4 USB 2 ports;
+	\item 4 Polos com saída estéreo e compositor de vídeo;
+	\item Entrada HDMI;
+	\item Entrada Micro SD;
+\end{itemize}
+
+%\begin{figure}[htb]
+%	\centering
+%	\caption{\label{raspberry}Raspberry Pi 3 Model B.}
+%	\includegraphics[width=.5\textwidth]{img/raspberry}
+%	\legend{Fonte: \citeauthor{siteraspberry}}
+%\end{figure}
+
+\subsection{Sensor RFID}
+
+Para realizar a leitura das tags RFID, será utilizado um módulo leitor RFID baseado no chip MFR522, da empresa NXP. Este chip, de baixo consumo e pequeno tamanho, permite sem contato ler e escrever em cartões que seguem o padrão Mifare, muito usado no mercado.\cite{siteleitor}
+
+Especificações:\cite{siteleitor}
+
+\begin{itemize}
+	\item Corrente de trabalho: 13-26mA / DC 3.3V;
+	\item Corrente ociosa: 10-13mA / 3.3V;
+	\item Corrente Slep: <80uA – Pico de corrente: <30mA;
+	\item Freqüência de operação: 13,56MHz;
+	\item Tipos de cartões suportados: Mifare1 S50, S70 Mifare1, Mifare UltraLight, Mifare Pro, Mifare Desfire;
+	\item Temperatura de operação: -20 a 80 graus Celsius;
+	\item Temperatura ambiente: -40 a 85 graus Celsius;
+	\item Umidade relativa: 5\% – 95\%;
+	\item Parâmetro de Interface SPI;
+	\item Taxa de transferência: 10 Mbit/s;
+	\item Dimensões: 8,5 x 5,5 x 1,0cm;
+	\item Peso: 21g;
+\end{itemize}
+
+%\begin{figure}[htb]
+%	\centering
+%	\caption{\label{leitor} Sensor RFID utilizado.}
+%	\includegraphics[width=.5\textwidth]{img/leitor}
+%	\legend{Fonte: \citeauthor{lastminuteengineersrfid}}
+%\end{figure}
+
+
+\subsection{Tag RFID}
+
+As tags utilizadas serão tags passiva do tipo cartão. O cartão possui um número de identificação (UID) pré-gravado e memória de 1KB para armazenar dados, embora estes não sejam utilizados.
+
+Especificações:\cite{sitecartao}
+
+
+\begin{itemize}
+	\item Freqüência de operação: 13,56MHz;
+	\item Material: PVC (Prova d’água);
+	\item Alcance: 10mm;
+	\item Padrão: Mifare S50;
+	\item Memória: 1K byte EEPROM (768 bytes livres);
+	\item Durabilidade de escrita: 100.000 ciclos;
+	\item Padrão ISO: ISO 14443 / 14443A;
+	\item Dimensões: 85 x 54 x 0,9mm;
+	\item Peso: 7g;
+\end{itemize}
+
+%\begin{figure}[htb]
+%	\centering
+%	\caption{\label{cartao}Tag RFID utilizada}
+%	\includegraphics[width=.5\textwidth]{img/cartao}
+%	\legend{Fonte: \citeauthor{sitecartao}}
+%\end{figure}
+
+\subsection{Capa}
+
+Para a segurança do sistema, servindo tanto para proteger a Raspberry contra condições atmosféricas, quanto para protegê-la de uso indevido, como por exemplo, ter um pen drive com arquivos maliciosos inserido na entrada USB, foi desenvolvida uma capa protetora, obstruindo todas as entradas da Raspberry, com a exceção da fonte de energia. A seguir, seguem os desenhos técnicos desta capa:
+
+% \newpage
+
+%\includepdf[pages=-,pagecommand={},width=\textwidth]{img/NodeCase_v03.pdf}
+
+
+\section{Software}
+
+\subsection{Firebase}
+
+Para salvar as operações na nuvem, a tecnologia utilizada é o banco de dados Firebase do Google. Esta plataforma já nos provê com funcionalidades como análises, relatórios e autenticação de usuários. A estrutura do banco de dados é a seguinte:
+
+%\begin{figure}[htb]
+%	\centering
+%	\caption{\label{firebase} Estrutura da firebase.}
+%	\includegraphics[width=.5\textwidth]{img/firebase}
+%	\legend{Fonte: Os autores.}
+%\end{figure}
+
+
+
+
+
+\subsection{Scripts}
+
+Cada Raspberry representa um node, e deve existir um node na entrada de todo recinto onde se deseja gravar movimentações de patrimônios.
+
+No momento em que a Raspberry é ligada, um script \emph{python} é executado utilizando \emph{systemd}, enviando o IP do node para a firebase, possibilitando os administradores a acessarem a Raspberry via \emph{ssh}. Por padrão, o usuário é "pi" e a senha é "raspberry". Por exemplo, se o endereço ip for 192.168.1.2, o administrador pode ter acesso à Raspberry com:
+
+{\tiny\$} \lstinline{ssh pi@192.168.1.2}
+
+O script executado na inicialização é:
+
+\begin{lstlisting}%{{{
+import pyrebase
+import requests
+import os
+import time
+
+nodeName="-Lv28cBFqV0r570agXUH"
+while (True):
+    time.sleep(60)
+    os.system("ip addr > /home/pi/ipaddr.txt")
+    def getIpOnFile():
+        with open('/home/pi/ipaddr.txt', 'r') as file:
+            for line in file:
+                if "inet" in line and "brd" in line:
+                    ip = line.split(" ")[5]
+                    return ip
+    def check_internet():
+        url='http://www.google.com/'
+        timeout=100
+        try:
+            _ = requests.get(url, timeout=timeout)
+            return True
+        except requests.ConnectionError:
+            print("Sem conexao")
+        return False
+    config = {
+        "apiKey": "AIzaSyBWp_iVUt4e_2PDHJic5z2DKWbjWbvKOOI",
+        "authDomain": "patri-control.firebaseapp.com",
+        "databaseURL": "https://patri-control.firebaseio.com",
+        "projectId": "patri-control",
+        "storageBucket": "patri-control.appspot.com",
+        "messagingSenderId": "629490990593",
+        "appId": "1:629490990593:web:bba3ec7c6e7538de"
+    }
+    while(check_internet() == True):
+        firebase = pyrebase.initialize_app(config)
+        banco = firebase.database()
+	banco.child().update({"nodes/"+nodeName+"/ip":getIpOnFile()})
+        getIpOnFile()
+    os.system("rm /home/pi/ipaddr.txt")
+\end{lstlisting}%}}}
+
+Ou seja, após 60 segundos são decorridos (para garantir que a Raspberry tem conexão à Internet) um arquivo temporário "ipaddr.txt" é criado, contendo o conteúdo do comando bash \emph{ip addr}. Uma conexão com o Firebase é criada, e, caso haja internet, apenas a área correspondente ao ip do arquivo ipaddr.txt é enviada à Firebase, sob seu respectivo node. 
+
+Para que a leitura das tags comece, é necessário que um administrador execute o arquivo start.py, localizado na pasta home:
+
+{\tiny\$} \lstinline$python3 ~/start.py$\\
+
+Grande parte deste script foi adaptado de \citeauthor{pimylifeuprfid}. Ao executar o programa, o seguinte irá acontecer:
+
+\begin{lstlisting}
+
+targetPatrimonio_name, text = reader.read()
+targetPatrimonio_key = ''
+\end{lstlisting}
+
+A leitura do patrimônio é realizada.
+
+\begin{lstlisting}
+	
+snapshotPatrimonio = banco.child("patrimonios").order_by_child("name").equal_to
+(targetPatrimonio_name).get()
+if(snapshotPatrimonio.val()):
+	targetPatrimonio_key = snapshotPatrimonio.each()[0].key()
+\end{lstlisting}
+
+Verifica se esse patrimônio já está presente no node.
+
+\begin{lstlisting}
+	
+if(snapshotPatrimonio.each()[0].val()['node']==nodeName):
+	snapshot = banco.child("nodes/"+nodeKey+"/patrimonios").order_by_child("name").
+equal_to(targetPatrimonio_name).get()#parar de deletar tudo
+	banco.child("nodes/"+nodeKey+"/patrimonios/"+snapshot.each()[0].key()).remove()
+	banco.child().update({"patrimonios/"+targetPatrimonio_key+"/node":"sem node"})
+else:
+	if(snapshotPatrimonio.each()[0].val()['node']!='sem node'):
+		snapshotNodeAntigo=banco.child("nodes").order_by_child("name").equal_to
+(snapshotPatrimonio.each()[0].val()['node']).get()
+		nodeAntigoKey = snapshotNodeAntigo.each()[0].key()
+		snapshot = banco.child("nodes/"+nodeAntigoKey+"/patrimonios").
+order_by_child("name").equal_to(targetPatrimonio_name).get()#parar de deletar tudo
+		banco.child("nodes/"+nodeAntigoKey+"/patrimonios/"+snapshot.each()[0].
+key()).remove()
+\end{lstlisting}
+
+Caso o patrimônio esteja no node, ele é retirado, e caso o patrimônio não esteja no node, ele é adicionado.
+
+\chapter{Considerações Finais}
+
+\section{Problemas na biblioteca da firebase}
+
+Na execução do projeto, foi encontrado um problema com o arquivo "pyrebase.py" da biblioteca da firebase. Esse problema causava erro ao gravar dados do tipo string no banco de dados. Para resolver este problema, foi necessário editar o arquivo:
+
+\lstinline{/usr/lib/python3.5/site-packages/pyrebase/pyrebase.py}
+
+É necessário substituir a linha 238:
+
+\lstinline{parameters[param] = quote('"' + self.build_query[param] + '"')}
+
+Por 
+
+\lstinline{parameters[param] = '"' + self.build_query[param] + '"'}
+
+Este processo funciona até o momento (dezembro de 2019).
+
+\section{Melhorias futuras}
+
+
+\subsection{Sensor RFID}
+
+
+Os leitores RFID do tipo portal poderiam serem utilizados. Sensores deste tipo permitem centenas de operações por segundo, nos assegurando com segurança que todos as tags serão lidas. Se os sensores forem posicionados em todas as entradas, teremos segurança que a movimentação de todo patrimônio que passe pela entrada será registrada. Sua desvantagem está em seu preço, cerca de 1000\% maiores que os sensores utilizados atualmente. Um exemplo de sensor do tipo portal está ilustrado na figura \ref{portal}
+
+%\begin{figure}[htb]
+%	\centering
+%	\caption{\label{portal} Sensores do tipo portal.}
+%	\includegraphics[width=.5\textwidth]{img/portal}
+%	\legend{Fonte: \citeauthor{siteportal}}
+%\end{figure}
+
+\subsection{Leitura de códigos de barras}
+
+Poderia ser interessante para o sistema a a possibilidade da leitura de códigos de barra em conjunto com o sistema RFID, já que muitas empresas já utilizam o código de barras no controle de seus patrimônios. Esta inclusão poderia garantir uma transição mais harmoniosa do controle patrimônial antigo para o controle patrimonial da CtrlP.
+
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+% \postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+
+\end{document}
