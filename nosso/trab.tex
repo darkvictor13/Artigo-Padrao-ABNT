@@ -61,16 +61,9 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 
-
-\usepackage[bottom=2cm, right=2cm, top=3cm, left=3cm]{geometry}
-% ---
-		
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
-\usepackage{lipsum}				% para geração de dummy text
-% ---
-		
 % ---
 % Pacotes de citações
 % ---
@@ -78,7 +71,8 @@
 %\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[num,overcite]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+%\usepackage[num,overcite]{abntex2cite}	% Citações padrão ABNT
 \citebrackets[]
 
 % ---
@@ -132,18 +126,18 @@
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    	pdfsubject={Modelo de artigo científico com abnTeX2},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{atigo científico}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=black,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+  %pagebackref=true,
+  pdftitle={\@title}, 
+  pdfauthor={\@author},
+  pdfsubject={software livre},
+  pdfcreator={\@author},
+  pdfkeywords={software livre},
+  colorlinks=true,       		% false: boxed links; true: colored links
+  linkcolor=black,          	% color of internal links
+  citecolor=blue,        		% color of links to bibliography
+  filecolor=magenta,      		% color of file links
+  urlcolor=blue,
+  bookmarksdepth=4
 }
 \makeatother
 % --- 
@@ -157,8 +151,8 @@
 % ---
 % Altera as margens padrões
 % ---
-\setlrmarginsandblock{3cm}{3cm}{*}
-\setulmarginsandblock{3cm}{3cm}{*}
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
 \checkandfixthelayout
 % ---
 
@@ -180,7 +174,7 @@
 % Início do documento
 % ----
 \begin{document}
-
+\pagenumbering{roman}
 % Seleciona o idioma do documento (conforme pacotes do babel)
 %\selectlanguage{english}
 \selectlanguage{brazil}
@@ -224,7 +218,7 @@
  \vspace{\onelineskip}
  
  \noindent
- \textbf{Palavras-chave}: latex. abntex. editoração de texto.
+ \textbf{Palavras-chave}: software livre. vantagens. 
 \end{resumoumacoluna}
 
 
@@ -237,7 +231,7 @@
    \vspace{\onelineskip}
  
    \noindent
-   \textbf{Keywords}: latex. abntex.
+   \textbf{Keywords}: free software. advantages
  \end{otherlanguage*}  
 \end{resumoumacoluna}
 
@@ -245,9 +239,9 @@
 \cleardoublepage
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
-\cleardoublepage
+%\cleardoublepage
 \listoffigures
-\cleardoublepage
+%\cleardoublepage
 \listoftables
 \cleardoublepage
 
@@ -265,15 +259,27 @@ o endereço eletrônico, DOI, suportes e outras informações relativas ao acess
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
 \textual
-
+%\setcounter{page}{1}
+\pagenumbering{arabic}
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
-\section{Introdução}
+\section{Introdução}\label{Introdução}
 
-Essa é a Introdução~\cite{doxiadis1965}
+Essa é a Introdução
 
-Agora cito o~\cite{definicao}
+Agora cito o~\cite{definicao}, tbm cito o~\cite{uso_de_linux}, e o~\cite{vantagens}.
+
+\cite{site-fsf}
+
+\section{O que é software livre?}\label{O que é software livre?}
+Antes de entendermos o motivo de usarmos software livre, seus benefícios e vantagens, precisamos primeiramente entender o que é software livre.
+
+Tendo em vista a definição dada pela pela Free Software Foundation~\cite{site-fsf}, bem como a tradução para o português feita por~\cite{definicao}, software livre é ``o software que pode ser usado, copiado, estudado, modificado e redistribuído sem restrição. A forma usual de um software ser distribuído livremente é sendo acompanhado por uma licença de software livre, e com a disponibilização do seu código-fonte.''
+
+\section{Por que usar software livre?}\label{Por que usar software livre?}
+
+\section{Alternativas software livre para uso dentro da universidade}\label{Alternativas software livre para uso dentro da universidade}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
@@ -283,6 +289,7 @@ Agora cito o~\cite{definicao}
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
+\cleardoublepage
 \bibliography{referencia}
 
 % ----------------------------------------------------------
@@ -293,9 +300,5 @@ Agora cito o~\cite{definicao}
 % Consulte o manual do abnTeX2 para obter sugestões.
 %
 %\glossary
-
-\section*{Agradecimentos}
-Texto sucinto aprovado pelo periódico em que será publicado. Último 
-elemento pós-textual.
 
 \end{document}
