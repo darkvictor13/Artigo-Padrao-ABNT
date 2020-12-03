@@ -100,19 +100,21 @@
 % \titulo{Modelo Canônico de Artigo científico com \abnTeX}
 % \tituloestrangeiro{Canonical article template in \abnTeX: optional foreign title}
 
-\titulo{Uso de software livre para estudantes de Ciência da Computação}
+\titulo{Uso de software livre para estudantes de Ciência da Computação (revisão da literatura, revisão narrativa)}
+\tituloestrangeiro{Use of free software for Computer Science students}
 
-\autor{Victor Emanuel Almeida\and~Marco Aurélio Guerra Pedroso}
+\autor{Victor Emanuel Almeida}
 
 \local{FOZ DO IGUAÇU}
 \data{\today}
 
-\instituicao{%
-	\par
-	Universidade do Oeste do Paraná 
-	\par
-	UNIOESTE
-}
+%\instituicao{%
+	%\par
+	%Universidade do Oeste do Paraná 
+	%\par
+	%UNIOESTE
+%}
+\instituicao{Curso de Ciência da Computação, da Universidade Estadual do Oeste do Paraná (UNIOESTE), Campus Foz do Iguaçu-PR, Brasil}
 
 \preambulo{Escrever Preâmbulo}
 
@@ -192,16 +194,19 @@
 %
 % Se desejar escrever o artigo em duas colunas, descomente a linha abaixo
 % e a linha com o texto ``FIM DE ARTIGO EM DUAS COLUNAS''.
-% \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
+%\twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
 %
 %---
 
 % página de titulo principal (obrigatório)
 \imprimircapa
+%\begin{center}
+  %\maketitle
+  %\imprimirtitulo
+  %\vspace{.5cm}
 
-
-\imprimirfolhaderosto*
-
+  %\imprimirinstituicao
+%\end{center}
 
 % titulo em outro idioma (opcional)
 
@@ -237,7 +242,6 @@
  \end{otherlanguage*}  
 \end{resumoumacoluna}
 
-
 \cleardoublepage
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
@@ -249,13 +253,6 @@
 
 % ]  				% FIM DE ARTIGO EM DUAS COLUNAS
 % ---
-
-\begin{center}\smaller
-\textbf{Data de submissão e aprovação}: elemento obrigatório. Indicar dia, mês e ano
-
-\textbf{Identificação e disponibilidade}: elemento opcional. Pode ser indicado 
-o endereço eletrônico, DOI, suportes e outras informações relativas ao acesso.
-\end{center}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
@@ -320,3 +317,4 @@ O Jflap é um ``pacote gráfico com ferramentas que podem ser utilizadas para ap
 %\glossary
 
 \end{document}
+
