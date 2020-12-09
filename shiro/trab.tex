@@ -1,0 +1,278 @@
+\documentclass[
+	% -- opções da classe memoir --
+	article,			% indica que é um artigo acadêmico
+	12pt,				% tamanho da fonte
+	oneside,			% para impressão apenas no recto. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional
+	]{abntex2}
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+%\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[num,overcite,abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
+%\usepackage[num]{abntex2cite}	% Citações padrão ABNT
+%\citebrackets()
+\citebrackets[]
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% --- Informações de dados para CAPA e FOLHA DE ROSTO ---
+% \titulo{Modelo Canônico de Artigo científico com \abnTeX}
+% \tituloestrangeiro{Canonical article template in \abnTeX: optional foreign title}
+
+\titulo{Sistemas Embarcados, aplicações na agricultura IOT: revisão bibliográfica}
+\tituloestrangeiro{Use of free software for Computer Science students}
+
+\autor{Victor Emanuel Almeida}
+
+\local{FOZ DO IGUAÇU}
+\data{\today}
+
+%\instituicao{%
+	%\par
+	%Universidade do Oeste do Paraná 
+	%\par
+	%UNIOESTE
+%}
+\instituicao{Curso de Ciência da Computação, da Universidade Estadual do Oeste do Paraná (UNIOESTE), Campus Foz do Iguaçu-PR, Brasil}
+
+\preambulo{Escrever Preâmbulo}
+
+\tipotrabalho{Trabalho Acadêmico}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+  %pagebackref=true,
+  pdftitle={\@title}, 
+  pdfauthor={\@author},
+  pdfsubject={software livre},
+  pdfcreator={\@author},
+  pdfkeywords={software livre},
+  colorlinks=true,       		% false: boxed links; true: colored links
+  linkcolor=black,          	% color of internal links
+  citecolor=blue,        		% color of links to bibliography
+  filecolor=magenta,      		% color of file links
+  urlcolor=blue,
+  bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+%\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\SingleSpacing
+
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+\pagenumbering{roman}
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+%---
+%
+% Se desejar escrever o artigo em duas colunas, descomente a linha abaixo
+% e a linha com o texto ``FIM DE ARTIGO EM DUAS COLUNAS''.
+%\twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
+%
+%---
+
+% página de titulo principal (obrigatório)
+\imprimircapa
+%\begin{center}
+  %\maketitle
+  %\imprimirtitulo
+  %\vspace{.5cm}
+
+  %\imprimirinstituicao
+%\end{center}
+
+% titulo em outro idioma (opcional)
+
+
+
+% resumo em português
+\begin{resumoumacoluna}
+ Conforme a ABNT NBR 6022:2018, o resumo no idioma do documento é elemento obrigatório. 
+ Constituído de uma sequência de frases concisas e objetivas e não de uma 
+ simples enumeração de tópicos, não ultrapassando 250 palavras, seguido, logo 
+ abaixo, das palavras representativas do conteúdo do trabalho, isto é, 
+ palavras-chave e/ou descritores, conforme a NBR 6028. (\ldots) As 
+ palavras-chave devem figurar logo abaixo do resumo, antecedidas da expressão 
+ Palavras-chave:, separadas entre si por ponto e finalizadas também por ponto.
+ 
+ \vspace{\onelineskip}
+ 
+ \noindent
+ \textbf{Palavras-chave}: software livre. vantagens. 
+\end{resumoumacoluna}
+
+
+% resumo em inglês
+\renewcommand{\resumoname}{Abstract}
+\begin{resumoumacoluna}
+ \begin{otherlanguage*}{english}
+   According to ABNT NBR 6022:2018, an abstract in foreign language is optional.
+
+   \vspace{\onelineskip}
+ 
+   \noindent
+   \textbf{Keywords}: free software. advantages
+ \end{otherlanguage*}  
+\end{resumoumacoluna}
+
+\cleardoublepage
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+%\cleardoublepage
+\listoffigures
+%\cleardoublepage
+\listoftables
+\cleardoublepage
+
+% ]  				% FIM DE ARTIGO EM DUAS COLUNAS
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+%\setcounter{page}{1}
+\pagenumbering{arabic}
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\section{Introdução}
+Tendo em vista a crescente popularização da internet, melhorias nos protocolos de comunicação e a maior capacidade do hardware, abre-se espaço para integrar a rede diversos dispositivos ou ``coisas'', até então nunca imaginados, tais como geladeiras, televisores, entre outros. Esse conceito é chamado de internet das coisas, ``internet of things (IOT)'', aplicando-o no contexto agrícola, observa-se um grande potencial.
+
+Observando esse potencial, porém notando as muitas ideias, métodos e sistemas diferentes que realizam funções similares, faz-se necessário que se analise o que o mundo tem feito para implementar sistemas IOT em áreas agrícolas.
+
+\section{Material e Método}\label{Material e Método}
+\section{Plataformas de tomada de decisão}\label{Plataformas de tomada de decisão}%artigos 1 e 2
+Em relação às plataformas de tomada de decisão segundo a pesquisa de \citeauthor{1} até onde sabe-se no ano de \citeyear{1} não havia nenhuma plataforma ou framework que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
+
+Considerando essa lacuna do conhecimento, desenvolveu-se uma ferramenta de suporte à decisão da temperatura do solo, ``temperature decision support tool'', seguindo uma metodologia de cinco passos:
+\begin{enumerate}
+  \item Comparação dos dados climáticos e ambientais, conseguindo a variabilidade em larga escala da temperatura do solo.
+
+  \item Comparação das temperaturas médias em séries históricas.
+  \item Comparar variáveis preditoras de clima com as medições realizadas, obtendo previsões.
+  \item Transformar o sistema para funcionar em tempo real.
+  \item Investigações a longo prazo.
+\end{enumerate}
+
+Com o objetivo de aumentar a precisão utiliza-se nove variáveis preditoras de clima, sendo elas: temperatura máxima, radiação diária, diferença entre temperatura máxima e mínima, taxa pluviométrica, latitude, elevação, conteúdo de água do solo, difusão térmica do solo, dia do ano.
+
+Este sistema foi desenvolvido Shiny (R), e possui uma alta taxa de predição de 92\% de validação cruzada R$_{2}$, RMSE = 1,91, tendência percentual = $-$ 0,01 (Explicar o que significam).
+Com essas taxas de predição pode-se auxiliar os agricultores de algodão a realizarem o plantio no momento certo, classificando o solo como ``bom'' após três dias com temperaturas acima de 14$^{\circ}$C, dessa maneira após utilizar dados de variáveis preditoras supracitadas recomenda-se ou não o plantio.
+
+Outro sistema de apoio à decisão desenvolvido por~\citeauthor{2}, com o objetivo de monitorar vinhedos para encontrar e tratar ``míldio'' (mofo)
+
+\section{Considerações Finais}
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\cleardoublepage
+\bibliography{ref}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Há diversas soluções prontas para glossário em LaTeX. 
+% Consulte o manual do abnTeX2 para obter sugestões.
+%
+%\glossary
+
+\end{document}
