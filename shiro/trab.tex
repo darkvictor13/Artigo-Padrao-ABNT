@@ -4,22 +4,12 @@
 	12pt,				% tamanho da fonte
 	oneside,			% para impressão apenas no recto. Oposto a twoside
 	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
 	english,			% idioma adicional para hifenização
 	brazil,				% o último idioma é o principal do documento
 	sumario=tradicional
 	]{abntex2}
 % ---
 % PACOTES
-% ---
-
-% ---
-% Pacotes fundamentais 
 % ---
 \usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
@@ -236,6 +226,8 @@ Victor Emanuel Almeida \and Marco Aurélio Guerra Pedroso\thanks{``Estudante do 
 % Introdução
 % ----------------------------------------------------------
 \section{Introdução}
+justificacao: existem muitas plataformas atualmente que trabalham com IOT, pois uma e area muito abrangente e esta  e o objetivo desse trabalho e avaliar varios metodos sistemas no meio agricola
+
 Tendo em vista a crescente popularização da internet, melhorias nos protocolos de comunicação e a maior capacidade do hardware, abre-se espaço para integrar a rede diversos dispositivos ou ``coisas'', até então nunca imaginados, tais como geladeiras, televisores, entre outros. Esse conceito é chamado de internet das coisas, ``\textit{internet of things}'' (IOT), e segundo~\citeauthor{5} o setor agrícola será um dos mais afetados pelos avanços dessa área.
 
 Observando esse potencial, porém notando as muitas ideias, métodos e sistemas diferentes que realizam funções similares, faz-se necessário que se analise o que o mundo tem feito para implementar sistemas IOT em áreas agrícolas.
@@ -268,7 +260,7 @@ Considerando essa lacuna do conhecimento, desenvolveu-se uma ferramenta de supor
 
 Com o objetivo de aumentar a precisão utiliza-se nove variáveis preditoras de clima, sendo elas: temperatura máxima, radiação diária, diferença entre temperatura máxima e mínima, taxa pluviométrica, latitude, elevação, conteúdo de água do solo, difusão térmica do solo, dia do ano.
 
-Este sistema foi desenvolvido Shiny (R), e possui uma alta taxa de predição de 92\% de validação cruzada R$_{2}$, RMSE = 1,91, tendência percentual = $-$ 0,01.
+Este sistema foi desenvolvido em Shiny (R), e possui uma alta taxa de predição de 92\% de validação cruzada R$_{2}$, RMSE = 1,91, tendência percentual = $-$ 0,01.
 Com essas taxas de predição pode-se auxiliar os agricultores de algodão a realizarem o plantio no momento certo, classificando o solo como ``bom'' após três dias com temperaturas acima de 14\textdegree C, dessa maneira após utilizar dados de variáveis preditoras supracitadas recomenda-se ou não o plantio.
 
 Outro sistema de apoio à decisão desenvolvido por~\citeauthor{2}, com o objetivo de monitorar vinhedos para encontrar e tratar ``míldio'' (mofo).
@@ -277,11 +269,11 @@ O míldio é uma doença fúngica causada pela \textit{plasmopara viticola oomyc
 O principal modelo utilizado para descobrir qual o momento mais propício de aparecimento do míldio foi o de Goidanich~\cite{detectando_milidio}, também chamado de ``regra dos três dez'' pois quando a temperatura média ultrapassa 10\textdegree C, a germinação ultrapassa os 10 cm e o volume de chuva superior a 10 mm, este é o momento propício para uma primeira contaminação da vinha.
 Sabendo desses dados expostos por Goidanich~\cite{detectando_milidio} percebe-se a necessidade de monitorar três fenômenos, sendo eles: temperatura, umidade e índice pluviométrico, sendo assim precisando de três sensores.
 
-Para desenvolver esse sistema o autor utilizou o sistema ``\textit{Sense Our Environment}'' (SEnviro), uma plataforma que utilizando-se de software e hardware livres visa baixar o custo e aumentar a eficiência energética dos sensores~\cite{2}, esse \textit{framework} base da pesquisa tem suas funcionalidades melhor explicado em outra pesquisa~\cite{SEnviro} do mesmo autor, e como já citado nessa seção possui todos os códigos fonte disponível ao público no github~\cite{SEnviro_Github}.
+Para desenvolver essa plataforma o autor utilizou o sistema ``\textit{Sense Our Environment}'' (SEnviro), uma plataforma que utilizando-se de software e hardware livres visa baixar o custo e aumentar a eficiência energética dos sensores~\cite{2}. O SEnviro contém suas funcionalidades melhor explicado em outra pesquisa~\cite{SEnviro} e como já citado nessa seção possui todos os códigos fonte disponível ao público no github~\cite{SEnviro_Github}.
 
-Em relação a hardware utilizou-se os sensores de temperatura, umidade e pluviométrico, além de uma bateria alimentada por um painel solar, para controlar e enviar os dados utilizados no sistema utilizou-se uma placa Arduino LinkIt ONE, e para comunicação O módulo ``\textit{Sensor Data Management}'' (SDM).
+Em relação a hardware utilizou-se os sensores de temperatura, umidade e pluviométrico, além de uma bateria alimentada por um painel solar. Para controlar e enviar os dados utilizados no sistema utilizou-se uma placa Arduino LinkIt ONE e para comunicação o módulo ``\textit{Sensor Data Management}'' (SDM).
 
-Com a estacão pronta iniciou-se os testes, detectando de maneira precisa em 96,9\% dos casos em que houve o alerta de infecção com isso os agricultores puderam aplicar o tratamento de controle de praga apenas quando necessário, reduzindo assim a quantidade de produtos químicos no solo, a quantidade de horas gastas para verificação e correção de doenças dentro do vinhedo bem como os custos da plantação.
+Com a estacão concluída iniciou-se os testes, detectando em 96,9\% de maneira precisa em que houve o alerta de infecções. Através disso, os agricultores puderam aplicar o tratamento de controle de praga apenas quando necessário, reduzindo assim a quantidade de produtos químicos no solo, a quantidade de horas gastas para verificação e correção de doenças dentro do vinhedo bem como os custos da plantação.
 
 \section{Sensoreamento do solo (camada de percepção)}\label{Sensoreamento do solo (camada de percepção)}
 
