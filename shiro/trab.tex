@@ -38,11 +38,11 @@
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-%\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
-\usepackage[num,overcite,abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf,abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
+%\usepackage[num,overcite,abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
 %\usepackage[num]{abntex2cite}	% Citações padrão ABNT
-%\citebrackets()
-\citebrackets[]
+\citebrackets()
+%\citebrackets[]
 % ---
 
 % ---
@@ -66,10 +66,15 @@
 % \titulo{Modelo Canônico de Artigo científico com \abnTeX}
 % \tituloestrangeiro{Canonical article template in \abnTeX: optional foreign title}
 
-\titulo{Sistemas Embarcados, aplicações na agricultura IOT: revisão bibliográfica}
+\titulo{Sistemas Embarcados e suas aplicações na agricultura IOT: revisão bibliográfica}
 \tituloestrangeiro{Use of free software for Computer Science students}
 
-\autor{Victor Emanuel Almeida}
+%\autor{Victor Emanuel Almeida}
+\autor{
+%UNIOESTE\thanks{``Universidade Estadual do Oeste do Paraná, Foz do Iguaçu, Brasil.'' \url{http://www.unioeste.br/}} 
+\\[0.5cm] 
+Victor Emanuel Almeida \and Marco Aurélio Guerra Pedroso\thanks{``Estudante do curso de Ciências da Computação do Universidade Estadual do Oeste do Paraná, campus de Foz do Iguaçu, Brasil.''}
+}
 
 \local{FOZ DO IGUAÇU}
 \data{\today}
@@ -136,6 +141,7 @@
 
 % Controle do espaçamento entre um parágrafo e outro:
 %\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\setlength{\parskip}{\onelineskip}
 
 % Espaçamento simples
 \SingleSpacing
@@ -166,9 +172,10 @@
 %---
 
 % página de titulo principal (obrigatório)
-\imprimircapa
+%\imprimircapa
 %\begin{center}
-  %\maketitle
+\maketitle
+  %{\centered\maketitle\imprimirlocal\imprimirinstituicao}
   %\imprimirtitulo
   %\vspace{.5cm}
 
@@ -229,13 +236,25 @@
 % Introdução
 % ----------------------------------------------------------
 \section{Introdução}
-Tendo em vista a crescente popularização da internet, melhorias nos protocolos de comunicação e a maior capacidade do hardware, abre-se espaço para integrar a rede diversos dispositivos ou ``coisas'', até então nunca imaginados, tais como geladeiras, televisores, entre outros. Esse conceito é chamado de internet das coisas, ``\textit{internet of things}'' (IOT), aplicando-o no contexto agrícola, observa-se um grande potencial.
+Tendo em vista a crescente popularização da internet, melhorias nos protocolos de comunicação e a maior capacidade do hardware, abre-se espaço para integrar a rede diversos dispositivos ou ``coisas'', até então nunca imaginados, tais como geladeiras, televisores, entre outros. Esse conceito é chamado de internet das coisas, ``\textit{internet of things}'' (IOT), e segundo~\citeauthor{5} o setor agrícola será um dos mais afetados pelos avanços dessa área.
 
 Observando esse potencial, porém notando as muitas ideias, métodos e sistemas diferentes que realizam funções similares, faz-se necessário que se analise o que o mundo tem feito para implementar sistemas IOT em áreas agrícolas.
 
+\section{Conceitos Importantes}\label{Conceitos Importantes}
+Antes de abordar as principais tecnologias, bem como os principais e mais atuais estudos relacionados a IOT, faz-se necessário elucidar alguns pontos.
+\begin{itemize}
+  \item Estrutura do IOT: baseada em três camadas~\cite{5}
+
+    \begin{enumerate}
+    \item A de percepção que seria uma camada de sensores, hardware, que obtém-se dados relevantes a respeito dos fenômenos meteorológicos tais como clima, temperatura do solo, umidade do ar, entre outros, no caso dessa revisão bibliográfica os sensores são utilizados são focados em obter informações a respeito do solo.
+    \item A camada de rede, camada a qual é responsável por se comunicar com os outros dispositivos. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}~\cite{camada2}.
+    \item A de aplicação, camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados, nessa revisão bibliográfica essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar~\cite{1}, ou em quais lugares da plantação tem doenças~\cite{2}.
+    \end{enumerate}
+\end{itemize}
+
 \section{Material e Método}\label{Material e Método}
-\section{Plataformas de tomada de decisão}\label{Plataformas de tomada de decisão}%artigos 1 e 2
-Em relação às plataformas de tomada de decisão segundo a pesquisa de \citeauthor{1} até onde sabe-se no ano de \citeyear{1} não havia nenhuma plataforma ou \textit{framework} que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
+\section{Plataformas de tomada de decisão (camada de aplicação)}\label{Plataformas de tomada de decisão}%artigos 1 e 2
+Em relação às plataformas de tomada de decisão segundo a pesquisa de~\citeauthor{1} até onde sabe-se no ano de~\citeyear{1} não havia nenhuma plataforma ou \textit{framework} que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
 
 Considerando essa lacuna do conhecimento, desenvolveu-se uma ferramenta de suporte à decisão da temperatura do solo, ``\textit{temperature decision support tool}'', seguindo uma metodologia de cinco passos:
 \begin{enumerate}
@@ -253,16 +272,18 @@ Este sistema foi desenvolvido Shiny (R), e possui uma alta taxa de predição de
 Com essas taxas de predição pode-se auxiliar os agricultores de algodão a realizarem o plantio no momento certo, classificando o solo como ``bom'' após três dias com temperaturas acima de 14\textdegree C, dessa maneira após utilizar dados de variáveis preditoras supracitadas recomenda-se ou não o plantio.
 
 Outro sistema de apoio à decisão desenvolvido por~\citeauthor{2}, com o objetivo de monitorar vinhedos para encontrar e tratar ``míldio'' (mofo).
-O míldio é uma doença fúngica causada pela \textit{plasmopara viticola oomycete}, doença essa que causa muito prejuízo nas vinícolas\cite{2}. Doença essa muito estudada, sendo assim nessa pesquisa baseando-se nos modelos já existentes de detecção a acompanhamento do fungo, buscou-se a automatização dos mesmos.
+O míldio é uma doença fúngica causada pela \textit{plasmopara viticola oomycete}, doença essa que causa muito prejuízo nas vinícolas~\cite{2}. Doença essa muito estudada, sendo assim nessa pesquisa baseando-se nos modelos já existentes de detecção a acompanhamento do fungo, buscou-se a automatização dos mesmos.
 
-O principal modelo utilizado para descobrir qual o momento mais propício de aparecimento do míldio foi o de Goidanich\cite{detectando_milidio}, também chamado de ``regra dos três dez'' pois quando a temperatura média ultrapassa 10\textdegree C, a germinação ultrapassa os 10 cm e o volume de chuva superior a 10 mm, este é o momento propício para uma primeira contaminação da vinha.
-Sabendo desses dados expostos por Goidanich\cite{detectando_milidio} percebe-se a necessidade de monitorar três fenômenos, sendo eles: temperatura, umidade e índice pluviométrico, sendo assim precisando de três sensores.
+O principal modelo utilizado para descobrir qual o momento mais propício de aparecimento do míldio foi o de Goidanich~\cite{detectando_milidio}, também chamado de ``regra dos três dez'' pois quando a temperatura média ultrapassa 10\textdegree C, a germinação ultrapassa os 10 cm e o volume de chuva superior a 10 mm, este é o momento propício para uma primeira contaminação da vinha.
+Sabendo desses dados expostos por Goidanich~\cite{detectando_milidio} percebe-se a necessidade de monitorar três fenômenos, sendo eles: temperatura, umidade e índice pluviométrico, sendo assim precisando de três sensores.
 
-Para desenvolver esse sistema o autor utilizou o sistema ``\textit{Sense Our Environment}'' (SEnviro), uma plataforma que utilizando-se de software e hardware livres visa baixar o custo e aumentar a eficiência energética dos sensores\cite{2}, esse \textit{framework} base da pesquisa tem suas funcionalidades melhor explicado em outra pesquisa\cite{SEnviro} do mesmo autor, e como já citado nessa seção possui todos os códigos fonte disponível ao público no github\cite{SEnviro_Github}.
+Para desenvolver esse sistema o autor utilizou o sistema ``\textit{Sense Our Environment}'' (SEnviro), uma plataforma que utilizando-se de software e hardware livres visa baixar o custo e aumentar a eficiência energética dos sensores~\cite{2}, esse \textit{framework} base da pesquisa tem suas funcionalidades melhor explicado em outra pesquisa~\cite{SEnviro} do mesmo autor, e como já citado nessa seção possui todos os códigos fonte disponível ao público no github~\cite{SEnviro_Github}.
 
 Em relação a hardware utilizou-se os sensores de temperatura, umidade e pluviométrico, além de uma bateria alimentada por um painel solar, para controlar e enviar os dados utilizados no sistema utilizou-se uma placa Arduino LinkIt ONE, e para comunicação O módulo ``\textit{Sensor Data Management}'' (SDM).
 
 Com a estacão pronta iniciou-se os testes, detectando de maneira precisa em 96,9\% dos casos em que houve o alerta de infecção com isso os agricultores puderam aplicar o tratamento de controle de praga apenas quando necessário, reduzindo assim a quantidade de produtos químicos no solo, a quantidade de horas gastas para verificação e correção de doenças dentro do vinhedo bem como os custos da plantação.
+
+\section{Sensoreamento do solo (camada de percepção)}\label{Sensoreamento do solo (camada de percepção)}
 
 \section{Considerações Finais}
 % ----------------------------------------------------------
