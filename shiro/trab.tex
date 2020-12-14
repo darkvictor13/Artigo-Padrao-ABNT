@@ -1,25 +1,26 @@
 \documentclass[
-	% -- opções da classe memoir --
-	article,			% indica que é um artigo acadêmico
-	12pt,				% tamanho da fonte
-	oneside,			% para impressão apenas no recto. Oposto a twoside
-	a4paper,			% tamanho do papel. 
-	english,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
-	sumario=tradicional
-	]{abntex2}
+% -- opções da classe memoir --
+article,			% indica que é um artigo acadêmico
+12pt,				% tamanho da fonte
+oneside,			% para impressão apenas no recto. Oposto a twoside
+a4paper,			% tamanho do papel. 
+english,			% idioma adicional para hifenização
+brazil,				% o último idioma é o principal do documento
+sumario=tradicional
+]{abntex2}
 % ---
 % PACOTES
 % ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{nomencl} 			% Lista de simbolos
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{lmodern} % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} % Lista de simbolos
+\usepackage{color}% Controle das cores
+\usepackage{graphicx}% Inclusão de gráficos
+\usepackage{microtype}% para melhorias de justificação
 \usepackage{gensymb}
+\usepackage{caption}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -43,37 +44,34 @@
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado nas páginas #2.%
-	\fi}%
+  \ifcase #1 %
+    Nenhuma citação no texto.%
+    \or
+    Citado na página #2.%
+  \else
+    Citado nas páginas #2.%
+\fi}%
 % ---
 
 % --- Informações de dados para CAPA e FOLHA DE ROSTO ---
-% \titulo{Modelo Canônico de Artigo científico com \abnTeX}
-% \tituloestrangeiro{Canonical article template in \abnTeX: optional foreign title}
-
-\titulo{Sistemas Embarcados e suas aplicações na agricultura IOT: revisão bibliográfica}
-\tituloestrangeiro{Use of free software for Computer Science students}
+\titulo{\bfseries Sistemas Embarcados e suas aplicações na agricultura IOT: revisão bibliográfica}
+\tituloestrangeiro{Embedded Systems and their applications in agriculture IOT: bibliographic review}
 
 %\autor{Victor Emanuel Almeida}
 \autor{
-%UNIOESTE\thanks{``Universidade Estadual do Oeste do Paraná, Foz do Iguaçu, Brasil.'' \url{http://www.unioeste.br/}} 
-\\[0.5cm] 
-Victor Emanuel Almeida \and Marco Aurélio Guerra Pedroso\thanks{``Estudante do curso de Ciências da Computação do Universidade Estadual do Oeste do Paraná, campus de Foz do Iguaçu, Brasil.''}
+  %UNIOESTE\thanks{``Universidade Estadual do Oeste do Paraná, Foz do Iguaçu, Brasil.'' \url{http://www.unioeste.br/}} 
+  %\\[0.5cm]\\
+  Victor Emanuel Almeida\thanks{``Estudante do curso de Ciências da Computação do Universidade Estadual do Oeste do Paraná, campus de Foz do Iguaçu, Brasil.''}\and Marco Aurélio Guerra Pedroso\thanks{``Estudante do curso de Ciências da Computação do Universidade Estadual do Oeste do Paraná, campus de Foz do Iguaçu, Brasil.''}
 }
 
 \local{FOZ DO IGUAÇU}
 \data{\today}
 
 %\instituicao{%
-	%\par
-	%Universidade do Oeste do Paraná 
-	%\par
-	%UNIOESTE
+%\par
+%Universidade do Oeste do Paraná 
+%\par
+%UNIOESTE
 %}
 \instituicao{Curso de Ciência da Computação, da Universidade Estadual do Oeste do Paraná (UNIOESTE), Campus Foz do Iguaçu-PR, Brasil}
 
@@ -97,10 +95,10 @@ Victor Emanuel Almeida \and Marco Aurélio Guerra Pedroso\thanks{``Estudante do 
   pdfsubject={software livre},
   pdfcreator={\@author},
   pdfkeywords={software livre},
-  colorlinks=true,       		% false: boxed links; true: colored links
-  linkcolor=black,          	% color of internal links
-  citecolor=blue,        		% color of links to bibliography
-  filecolor=magenta,      		% color of file links
+  colorlinks=true,% false: boxed links; true: colored links
+  linkcolor=black,% color of internal links
+  citecolor=blue,% color of links to bibliography
+  filecolor=magenta,% color of file links
   urlcolor=blue,
   bookmarksdepth=4
 }
@@ -136,7 +134,6 @@ Victor Emanuel Almeida \and Marco Aurélio Guerra Pedroso\thanks{``Estudante do 
 % Espaçamento simples
 \SingleSpacing
 
-
 % ----
 % Início do documento
 % ----
@@ -165,43 +162,37 @@ Victor Emanuel Almeida \and Marco Aurélio Guerra Pedroso\thanks{``Estudante do 
 %\imprimircapa
 %\begin{center}
 \maketitle
-  %{\centered\maketitle\imprimirlocal\imprimirinstituicao}
-  %\imprimirtitulo
-  %\vspace{.5cm}
+%{\centered\maketitle\imprimirlocal\imprimirinstituicao}
+%\imprimirtitulo
+%\vspace{.5cm}
 
-  %\imprimirinstituicao
+%\imprimirinstituicao
 %\end{center}
 
 % titulo em outro idioma (opcional)
 
 % resumo em português
 \begin{resumoumacoluna}
- Conforme a ABNT NBR 6022:2018, o resumo no idioma do documento é elemento obrigatório. 
- Constituído de uma sequência de frases concisas e objetivas e não de uma 
- simples enumeração de tópicos, não ultrapassando 250 palavras, seguido, logo 
- abaixo, das palavras representativas do conteúdo do trabalho, isto é, 
- palavras-chave e/ou descritores, conforme a NBR 6028. (\ldots) As 
- palavras-chave devem figurar logo abaixo do resumo, antecedidas da expressão 
- Palavras-chave:, separadas entre si por ponto e finalizadas também por ponto.
- 
- \vspace{\onelineskip}
- 
- \noindent
- \textbf{Palavras-chave}: internet das coisas, sistemas embarcados.
+  O constante avanço da tecnologia, e especialmente, o barateamento dos custos do componentes elétricos, tem sido fundamental no surgimento e ampla utilização das práticas de IOT. Nesse cenário, singularmente, nos últimos anos tem sido visto uma ampla divulgação e expansão das tecnologias no campo. Tais tecnologias apresentam grande potencial mas tem-se visto limitadas pela falta de existência de um corpo consolidado de conhecimento, o que por sua vez leva a uma má aplicação de técnicas e padrões, dificultando a otimização e compatibilidade entre estes sistemas. Assim, a proposta do presente artigo é gerar, a partir de uma revisão bibliográfica, uma base de boas práticas e conteúdos úteis que tem sido responsáveis pelo sucesso de alguns dos sistemas já implantados e dos quais se tem registro acadêmico. Dessa forma, o artigo serviu para verificar os avanços tecnológicos no campo, permitindo observar a sua precedência na mudança das práticas agrícolas. Principalmente, foi observado o sucesso e as possibilidades que o sensoreamento do solo e as plataformas de tomada de decisão oferecem. O que nos leva a concluir que a chegada das novas tecnologias ao campo é um processo definitivo e que cada vez mais ira se destacar no meio agrícola.
+
+  \textbf{Palavras-chave}: Agricultura, Internet das coisas, Tomada de decisão, Sensoreamento.
+
+  \vspace{\onelineskip}
+
+  \noindent
 \end{resumoumacoluna}
 
 
 % resumo em inglês
 \renewcommand{\resumoname}{Abstract}
 \begin{resumoumacoluna}
- \begin{otherlanguage*}{english}
-   According to ABNT NBR 6022:2018, an abstract in foreign language is optional.
+  \begin{otherlanguage*}{english}
+    The constant advancement of technology, and especially, the lower costs of electrical components, has been fundamental in the emergence and wide use of IOT practices. In this scenario, singularly, in recent years there has been a wide dissemination and expansion of technologies in the field. Such technologies have great potential but have been limited by the lack of a consolidated body of knowledge, which in turn leads to a poor application of techniques and standards, making optimization and compatibility between these systems difficult. Thus, the purpose of this article is to generate, based on a bibliographic review, a base of good practices and useful content that has been responsible for the success of some of the systems already in place and of which there is an academic record. In this way, the article served to verify technological advances in the field, allowing to observe its precedence in changing agricultural practices. Mainly, it was observed the success and the possibilities that the soil sensing and the decision making platforms offer. Which leads us to conclude that the arrival of new technologies in the field is a definitive process and that it will increasingly stand out in the agricultural environment.
+    \vspace{\onelineskip}
+    \noindent
 
-   \vspace{\onelineskip}
- 
-   \noindent
-   \textbf{Keywords}: 
- \end{otherlanguage*}  
+    \textbf {Keywords}: Agriculture, Internet of things, Decision making, Sensing.
+  \end{otherlanguage*}  
 \end{resumoumacoluna}
 
 %\cleardoublepage
@@ -211,7 +202,6 @@ Victor Emanuel Almeida \and Marco Aurélio Guerra Pedroso\thanks{``Estudante do 
 %\listoffigures
 %\cleardoublepage
 %\listoftables
-\cleardoublepage
 
 %]  				% FIM DE ARTIGO EM DUAS COLUNAS
 % ---
@@ -226,25 +216,56 @@ Victor Emanuel Almeida \and Marco Aurélio Guerra Pedroso\thanks{``Estudante do 
 % Introdução
 % ----------------------------------------------------------
 \section{Introdução}
-justificacao: existem muitas plataformas atualmente que trabalham com IOT, pois uma e area muito abrangente e esta  e o objetivo desse trabalho e avaliar varios metodos sistemas no meio agricola
 
 Tendo em vista a crescente popularização da internet, melhorias nos protocolos de comunicação e a maior capacidade do hardware, abre-se espaço para integrar a rede diversos dispositivos ou ``coisas'', até então nunca imaginados, tais como geladeiras, televisores, entre outros. Esse conceito é chamado de internet das coisas, ``\textit{internet of things}'' (IOT), e segundo~\citeauthor{5} o setor agrícola será um dos mais afetados pelos avanços dessa área.
 
 Observando esse potencial, porém notando as muitas ideias, métodos e sistemas diferentes que realizam funções similares, faz-se necessário que se analise o que o mundo tem feito para implementar sistemas IOT em áreas agrícolas.
 
-\section{Conceitos Importantes}\label{Conceitos Importantes}
+\section{Conceitos e características}\label{Conceitos Importantes}
 Antes de abordar as principais tecnologias, bem como os principais e mais atuais estudos relacionados a IOT, faz-se necessário elucidar alguns pontos.
 \begin{itemize}
   \item Estrutura do IOT: baseada em três camadas~\cite{5}
 
     \begin{enumerate}
-    \item A de percepção que seria uma camada de sensores, hardware, que obtém-se dados relevantes a respeito dos fenômenos meteorológicos tais como clima, temperatura do solo, umidade do ar, entre outros, no caso dessa revisão bibliográfica os sensores são utilizados são focados em obter informações a respeito do solo.
-    \item A camada de rede, camada a qual é responsável por se comunicar com os outros dispositivos. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}~\cite{camada2}.
-    \item A de aplicação, camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados, nessa revisão bibliográfica essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar~\cite{1}, ou em quais lugares da plantação tem doenças~\cite{2}.
+      \item A de percepção que seria uma camada de sensores, hardware, que obtém-se dados relevantes a respeito dos fenômenos meteorológicos tais como clima, temperatura do solo, umidade do ar, entre outros.
+      \item A camada de rede, camada a qual é responsável por se comunicar com os outros dispositivos. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}~\cite{camada2}.
+      \item A de aplicação, camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados, nessa revisão bibliográfica essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar~\cite{1}, ou em quais lugares da plantação tem doenças~\cite{2}.
     \end{enumerate}
 \end{itemize}
 
-\section{Material e Método}\label{Material e Método}
+\section{Materiais e Métodos}\label{Material e Método}
+O objetivo deste trabalho é reunir um corpo básico de conhecimento sobre os sistemas embarcados e suas possíveis aplicações na agricultura. Para isso foi realizada uma revisão explanatória do assunto. Tentando, dessa forma, condensar a narrativa da literatura incluindo artigos indexados nas plataformas digitais, e publicados no período entre os anos de 2010 e 2020. Tal período foi escolhido, devido ao fato do desenvolvimento das tecnologias no campo serem recentes. 
+
+Dessa forma, foi iniciada uma fase de definição das principais questões a serem utilizadas na elaboração do domínio da busca. As questões abordadas foram:
+
+\begin{enumerate}
+  \item Que plataformas de tomada de decisão estão presentes no mercado agrário hoje em dia? - \textit{decision-making, platforms, agricultural} 
+  \item Que modelos de extração e compilação de informação exitem? - \textit{models, compilation of information, agricultural}
+  \item Que mecanismos de sensoreamento do solo são conhecidos? - \textit{soil-sensing, mechanisms, knowledge}
+  \item Quais dados do solo são de interesse na toma de decisão? - \textit{soil data, interest, making the decision}.
+
+\end{enumerate}
+
+\begin{table}[!htb]
+  \centering
+  \caption{Palavras chave e delineamento da pesquisa}
+  \begin{tabular}{|p{1cm}|p{4cm}|p{4cm}|p{4cm}|}
+    \hline
+  & \multicolumn{1}{c|}{\textbf{Pergunta principais}}                                        & \multicolumn{1}{c|}{\textbf{Palavras chave}}           & \multicolumn{1}{c|}{\textbf{Algorítimo}} \\ \hline
+    1 & Que plataformas de tomada de decisão estão presentes no mercado agrário hoje em dia? & decision-making, platforms, agricultural         & (``decision-making'' and  “platforms'' and “agricultural''))         \\ \hline
+    2 & Que modelos de extração e compilação de informação existem?                            & models, compilation of information, agricultural & (``models'' and  “compilation of information'' and “agricultural'')) \\ \hline
+    3 & Que mecanismos de sensoreamento do solo são conhecidos?                              & soil-sensing, mechanisms, knowledge              & (``soil-sensing'' and  “mechanisms'' and “knowledge))              \\ \hline
+    4 & Quais dados do solo são de interesse na toma de decisão?                             & soil data, interest, making the decision         & (``soil data'' and  “interest'' and “making the decision''))         \\ \hline
+  \end{tabular}
+  \clearpage
+
+  {Fonte: Autoria Própria.}
+\end{table}
+
+Já numa segunda etapa, foi realizado o processo de busca dentro da plataforma Science Direct \url{https://www.sciencedirect.com/}, sendo preciso acessar finalmente os artigos através do portal da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES) com acesso remoto pela comunidade acadêmica federada (CAFe).
+
+Uma vez em posse dos artigos, foi necessária uma análise preliminar destes, nas fontes de busca mencionadas. Para isso, foram avaliados os títulos e resumos. E, dessa forma, apurar ainda mais a seleção. Finalmente foram enumerados os artigos que formaram parte da amostra, foram registrados em um outro arquivo específico, modo tabela, que contem dados da revista, base de dados, idioma, ano de publicação, objetivos, resultados e conclusões destes.
+
 \section{Plataformas de tomada de decisão (camada de aplicação)}\label{Plataformas de tomada de decisão}%artigos 1 e 2
 Em relação às plataformas de tomada de decisão segundo a pesquisa de~\citeauthor{1} até onde sabe-se no ano de~\citeyear{1} não havia nenhuma plataforma ou \textit{framework} que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
 
@@ -275,9 +296,31 @@ Em relação a hardware utilizou-se os sensores de temperatura, umidade e pluvio
 
 Com a estacão concluída iniciou-se os testes, detectando em 96,9\% de maneira precisa em que houve o alerta de infecções. Através disso, os agricultores puderam aplicar o tratamento de controle de praga apenas quando necessário, reduzindo assim a quantidade de produtos químicos no solo, a quantidade de horas gastas para verificação e correção de doenças dentro do vinhedo bem como os custos da plantação.
 
-\section{Sensoreamento do solo (camada de percepção)}\label{Sensoreamento do solo (camada de percepção)}
+\section{Sensoreamento (camada de percepção)}\label{Sensoreamento do solo (camada de percepção)}
 
+Tendo em vista a vasta variabilidade dos sensores utilizados nas diversas pesquisas apresentadas, agregamos os melhores resultados a cerca dos sensores.
+
+\clearpage
+\begin{table}[!htb]
+  \centering
+  \caption{Resultados do uso de sensores}
+  \begin{tabular}{|p{4.2cm}|p{4.2cm}|p{4.2cm}|}
+    \hline
+    \textbf{Citação} & \textbf{Sensor(es)}& \textbf{Resultado} \\ \hline
+    \cite{3} & EC-5 e ECH 2 O-TE & Medindo a umidade do solo a uma frequência de 70 MHz \\ \hline
+    \cite{12} & Hydra probes, 5TM e TDR CS616 & A partir dos testes, Hydra probes foi o melhor sensor para medição da temperatura do solo\\ \hline
+    \cite{7} & IEEE 1451, SensorML ou TransducerM & Compatibilidade com o framewok mySense \\ \hline
+  \end{tabular}
+
+  {Fonte: Autoria Própria.}
+\end{table}
 \section{Considerações Finais}
+Portanto, percebe-se a vasta área de aplicação de sistemas embarcados para implementações de fazendas inteligentes, tendo em vista que apenas abordando poucos tópicos tais como Plataformas de tomada de decisão, como citado na seção~\ref{Plataformas de tomada de decisão} e seus sensores, como citado na seção~\ref{Sensoreamento do solo (camada de percepção)}.
+
+Outrossim a partir dos sistemas de previsão tais como \cite{1},~\cite{2} auxiliaram produtores agrícolas a terem uma maior eficiência na hora de plantar, colher e obter mais informações a respeito da plantação sem o trabalho de verificar manualmente.
+
+Em relação aos sensores, percebeu-se uma grande variedade tanto em relação a preços precisões entre outros. Dessa forma cada em aplicação deve-se analisar qual a opção mais viável não existindo sensor perfeito para todas as aplicações, mas sim sensor perfeito para uma aplicação específica.
+
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
