@@ -53,6 +53,8 @@ sumario=tradicional
 \fi}%
 % ---
 
+\graphicspath{{./images/} {/home/victor/Pictures/latex/}}
+
 % --- Informações de dados para CAPA e FOLHA DE ROSTO ---
 \titulo{\bfseries Sistemas Embarcados e suas aplicações na agricultura IOT: revisão bibliográfica}
 \tituloestrangeiro{Embedded Systems and their applications in agriculture IOT: bibliographic review}
@@ -61,7 +63,7 @@ sumario=tradicional
 \autor{
   %UNIOESTE\thanks{``Universidade Estadual do Oeste do Paraná, Foz do Iguaçu, Brasil.'' \url{http://www.unioeste.br/}} 
   %\\[0.5cm]\\
-  Victor Emanuel Almeida\thanks{``Estudante do curso de Ciências da Computação do Universidade Estadual do Oeste do Paraná, campus de Foz do Iguaçu, Brasil.''}.
+  Victor Emanuel Almeida\thanks{``Estudante de Ciência da Computação na Universidade Estadual do Oeste do Paraná (UNIOESTE), campus de Foz do Iguaçu-PR, Brasil.''\url{http://www.unioeste.br/}}.
 }
 
 \local{FOZ DO IGUAÇU}
@@ -228,7 +230,7 @@ Antes de abordar as principais tecnologias, bem como os principais e mais atuais
 
     \begin{enumerate}
       \item A de percepção que seria uma camada de sensores, hardware, que obtém-se dados relevantes a respeito dos fenômenos meteorológicos tais como clima, temperatura do solo, umidade do ar, entre outros.
-      \item A camada de rede, camada a qual é responsável por se comunicar com os outros dispositivos. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}~\cite{camada2}.
+      \item A camada de comunicação, camada a qual é responsável por enviar os dados coletados pela camada de percepção supracitada para servidores ou aplicações na nuvem, de forma geral para algum tipo de armazenamento. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}~\cite{camada2}.
       \item A de aplicação, camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados, nessa revisão bibliográfica essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar~\cite{1}, ou em quais lugares da plantação tem doenças~\cite{2}.
     \end{enumerate}
 \end{itemize}
@@ -251,6 +253,43 @@ Perguntar
     2                    & precision viticulture     \\ \hline
   \end{tabular}
 \end{table}
+
+\begin{table}[!htb]
+  \centering
+  \caption{Ano de publicação dos artigos Qualis A}
+  \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Ano de publicação} & \textbf{Quantidade de artigos} \\ \hline
+    2008 & 1 \\ \hline
+    2014 & 1 \\ \hline
+    2015 & 2 \\ \hline
+    2016 & 1 \\ \hline
+    2017 & 4 \\ \hline
+    2018 & 1 \\ \hline
+    2019 & 3 \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=\textwidth]{artigosA.png}
+  \caption{\label{fig:artigosA.png}Ano de publicação dos artigos Qualis A}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=\textwidth]{artigosA_pizza.png}
+  \caption{\label{fig:artigosA_pizza.png}Ano de publicação dos artigos Qualis A}
+\end{figure}
+
+
+\section{Sensoreamento (camada de percepção)}\label{Sensoreamento do solo (camada de percepção)}
+
+Tendo em vista a vasta variabilidade dos sensores utilizados nas diversas pesquisas apresentadas, agregamos os melhores resultados a cerca dos sensores.
+
+\subsection{Umidade do solo}\label{Umidade do solo}
+
+\section{Rede (camada de comunicação)}\label{Rede (camada de comunicação)}
 
 \section{Plataformas de tomada de decisão (camada de aplicação)}\label{Plataformas de tomada de decisão}%artigos 1 e 2
 Em relação às plataformas de tomada de decisão segundo a pesquisa de~\citeauthor{1} até onde sabe-se no ano de~\citeyear{1} não havia nenhuma plataforma ou \textit{framework} que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
@@ -281,10 +320,6 @@ Para desenvolver essa plataforma o autor utilizou o sistema ``\textit{Sense Our 
 Em relação a hardware utilizou-se os sensores de temperatura, umidade e pluviométrico, além de uma bateria alimentada por um painel solar. Para controlar e enviar os dados utilizados no sistema utilizou-se uma placa Arduino LinkIt ONE e para comunicação o módulo ``\textit{Sensor Data Management}'' (SDM).
 
 Com a estacão concluída iniciou-se os testes, detectando em 96,9\% de maneira precisa em que houve o alerta de infecções. Através disso, os agricultores puderam aplicar o tratamento de controle de praga apenas quando necessário, reduzindo assim a quantidade de produtos químicos no solo, a quantidade de horas gastas para verificação e correção de doenças dentro do vinhedo bem como os custos da plantação.
-
-\section{Sensoreamento (camada de percepção)}\label{Sensoreamento do solo (camada de percepção)}
-
-Tendo em vista a vasta variabilidade dos sensores utilizados nas diversas pesquisas apresentadas, agregamos os melhores resultados a cerca dos sensores.
 
 \section{Considerações Finais}
 Portanto, percebe-se a vasta área de aplicação de sistemas embarcados para implementações de fazendas inteligentes, tendo em vista que apenas abordando poucos tópicos tais como Plataformas de tomada de decisão, como citado na seção~\ref{Plataformas de tomada de decisão} e seus sensores, como citado na seção~\ref{Sensoreamento do solo (camada de percepção)}.
