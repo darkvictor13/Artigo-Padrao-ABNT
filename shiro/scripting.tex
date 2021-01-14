@@ -30,10 +30,10 @@ sumario=tradicional
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf,abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
-%\usepackage[num,overcite,abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
-\citebrackets()
-%\citebrackets[]
+%\usepackage[alf,abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[num,overcite,abnt-emphasize=bf]{abntex2cite}	% Citações padrão ABNT
+%\citebrackets()
+\citebrackets[]
 % ---
 
 % ---
@@ -63,7 +63,7 @@ sumario=tradicional
 \autor{
   %UNIOESTE\thanks{``Universidade Estadual do Oeste do Paraná, Foz do Iguaçu, Brasil.'' \url{http://www.unioeste.br/}} 
   %\\[0.5cm]\\
-  Victor Emanuel Almeida\thanks{``Estudante de Ciência da Computação na Universidade Estadual do Oeste do Paraná (UNIOESTE), campus de Foz do Iguaçu-PR, Brasil.''\url{http://www.unioeste.br/}}.
+  Victor Emanuel Almeida\thanks{``Estudante de Ciência da Computação na Universidade Estadual do Oeste do Paraná (UNIOESTE), campus de Foz do Iguaçu-PR, Brasil.''\url{http://www.unioeste.br/}}
 }
 
 \local{FOZ DO IGUAÇU}
@@ -219,21 +219,22 @@ UNIOESTE
 % ----------------------------------------------------------
 \section{Introdução}
 
-Tendo em vista a crescente popularização da internet, melhorias nos protocolos de comunicação e a maior capacidade do hardware, abre-se espaço para integrar a rede diversos dispositivos ou ``coisas'', até então nunca imaginados, tais como geladeiras, televisores, entre outros. Esse conceito é chamado de internet das coisas, ``\textit{internet of things}'' (IOT), e segundo~\citeauthor{5} o setor agrícola será um dos mais afetados pelos avanços dessa área.
+Introduzir o assunto de IOT, terminando com citação
 
-Observando esse potencial, porém notando as muitas ideias, métodos e sistemas diferentes que realizam funções similares, faz-se necessário que se analise o que o mundo tem feito para implementar sistemas IOT em áreas agrícolas.
+Mostrar a relevância da pesquisa, como verificar o que o mundo tem feito deve nos mostrar as melhores práticas bem como as últimas tecnologias disponíveis.
 
-\section{Conceitos e características}\label{Conceitos Importantes}
+\section{Conceitos e características (Mudar nome)}\label{Conceitos Importantes}
 Antes de abordar as principais tecnologias, bem como os principais e mais atuais estudos relacionados a IOT, faz-se necessário elucidar alguns pontos.
-\begin{itemize}
-  \item Estrutura do IOT: baseada em três camadas~\cite{5}
+\subsection{O que é IOT}\label{O que é IOT}
 
+\subsection{As camadas do IOT}\label{As camadas do IOT}
+
+  Estrutura do IOT: baseada em três camadas\cite{5}
     \begin{enumerate}
       \item A de percepção que seria uma camada de sensores, hardware, que obtém-se dados relevantes a respeito dos fenômenos meteorológicos tais como clima, temperatura do solo, umidade do ar, entre outros.
-      \item A camada de comunicação, camada a qual é responsável por enviar os dados coletados pela camada de percepção supracitada para servidores ou aplicações na nuvem, de forma geral para algum tipo de armazenamento. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}~\cite{camada2}.
-      \item A de aplicação, camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados, nessa revisão bibliográfica essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar~\cite{1}, ou em quais lugares da plantação tem doenças~\cite{2}.
+      \item A camada de comunicação, camada a qual é responsável por enviar os dados coletados pela camada de percepção supracitada para servidores ou aplicações na nuvem, de forma geral para algum tipo de armazenamento. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}\cite{camada2}.
+      \item A de aplicação, camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados, nessa revisão bibliográfica essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar\cite{1}, ou em quais lugares da plantação tem doenças\cite{2}.
     \end{enumerate}
-\end{itemize}
 
 \section{Materiais e Métodos}\label{Materiais e Métodos}
 Perguntar
@@ -310,21 +311,20 @@ Este sistema foi desenvolvido em Shiny (R), e possui uma alta taxa de predição
 Com essas taxas de predição pode-se auxiliar os agricultores de algodão a realizarem o plantio no momento certo, classificando o solo como ``bom'' após três dias com temperaturas acima de 14\textdegree C, dessa maneira após utilizar dados de variáveis preditoras supracitadas recomenda-se ou não o plantio.
 
 Outro sistema de apoio à decisão desenvolvido por~\citeauthor{2}, com o objetivo de monitorar vinhedos para encontrar e tratar ``míldio'' (mofo).
-O míldio é uma doença fúngica causada pela \textit{plasmopara viticola oomycete}, doença essa que causa muito prejuízo nas vinícolas~\cite{2}. Doença essa muito estudada, sendo assim nessa pesquisa baseando-se nos modelos já existentes de detecção a acompanhamento do fungo, buscou-se a automatização dos mesmos.
+O míldio é uma doença fúngica causada pela \textit{plasmopara viticola oomycete}, doença essa que causa muito prejuízo nas vinícolas\cite{2}. Doença essa muito estudada, sendo assim nessa pesquisa baseando-se nos modelos já existentes de detecção a acompanhamento do fungo, buscou-se a automatização dos mesmos.
 
-O principal modelo utilizado para descobrir qual o momento mais propício de aparecimento do míldio foi o de Goidanich~\cite{detectando_milidio}, também chamado de ``regra dos três dez'' pois quando a temperatura média ultrapassa 10\textdegree C, a germinação ultrapassa os 10 cm e o volume de chuva superior a 10 mm, este é o momento propício para uma primeira contaminação da vinha.
-Sabendo desses dados expostos por Goidanich~\cite{detectando_milidio} percebe-se a necessidade de monitorar três fenômenos, sendo eles: temperatura, umidade e índice pluviométrico, sendo assim precisando de três sensores.
+O principal modelo utilizado para descobrir qual o momento mais propício de aparecimento do míldio foi o de Goidanich\cite{detectando_milidio}, também chamado de ``regra dos três dez'' pois quando a temperatura média ultrapassa 10\textdegree C, a germinação ultrapassa os 10 cm e o volume de chuva superior a 10 mm, este é o momento propício para uma primeira contaminação da vinha.
+Sabendo desses dados expostos por Goidanich\cite{detectando_milidio} percebe-se a necessidade de monitorar três fenômenos, sendo eles: temperatura, umidade e índice pluviométrico, sendo assim precisando de três sensores.
 
-Para desenvolver essa plataforma o autor utilizou o sistema ``\textit{Sense Our Environment}'' (SEnviro), uma plataforma que utilizando-se de software e hardware livres visa baixar o custo e aumentar a eficiência energética dos sensores~\cite{2}. O SEnviro contém suas funcionalidades melhor explicado em outra pesquisa~\cite{SEnviro} e como já citado nessa seção possui todos os códigos fonte disponível ao público no github~\cite{SEnviro_Github}.
+Para desenvolver essa plataforma o autor utilizou o sistema ``\textit{Sense Our Environment}'' (SEnviro), uma plataforma que utilizando-se de software e hardware livres visa baixar o custo e aumentar a eficiência energética dos sensores\cite{2}. O SEnviro contém suas funcionalidades melhor explicado em outra pesquisa\cite{SEnviro} e como já citado nessa seção possui todos os códigos fonte disponível ao público no github\cite{SEnviro_Github}.
 
-Em relação a hardware utilizou-se os sensores de temperatura, umidade e pluviométrico, além de uma bateria alimentada por um painel solar. Para controlar e enviar os dados utilizados no sistema utilizou-se uma placa Arduino LinkIt ONE e para comunicação o módulo ``\textit{Sensor Data Management}'' (SDM).
 
-Com a estacão concluída iniciou-se os testes, detectando em 96,9\% de maneira precisa em que houve o alerta de infecções. Através disso, os agricultores puderam aplicar o tratamento de controle de praga apenas quando necessário, reduzindo assim a quantidade de produtos químicos no solo, a quantidade de horas gastas para verificação e correção de doenças dentro do vinhedo bem como os custos da plantação.
+Com a estação concluída iniciou-se os testes, detectando em 96,9\% de maneira precisa em que houve o alerta de infecções. Através disso, os agricultores puderam aplicar o tratamento de controle de praga apenas quando necessário, reduzindo assim a quantidade de produtos químicos no solo, a quantidade de horas gastas para verificação e correção de doenças dentro do vinhedo bem como os custos da plantação.
 
 \section{Considerações Finais}
 Portanto, percebe-se a vasta área de aplicação de sistemas embarcados para implementações de fazendas inteligentes, tendo em vista que apenas abordando poucos tópicos tais como Plataformas de tomada de decisão, como citado na seção~\ref{Plataformas de tomada de decisão} e seus sensores, como citado na seção~\ref{Sensoreamento do solo (camada de percepção)}.
 
-Outrossim a partir dos sistemas de previsão tais como \cite{1},~\cite{2} auxiliaram produtores agrícolas a terem uma maior eficiência na hora de plantar, colher e obter mais informações a respeito da plantação sem o trabalho de verificar manualmente.
+Outrossim a partir dos sistemas de previsão tais como\cite{1},\cite{2} auxiliaram produtores agrícolas a terem uma maior eficiência na hora de plantar, colher e obter mais informações a respeito da plantação sem o trabalho de verificar manualmente.
 
 Em relação aos sensores, percebeu-se uma grande variedade tanto em relação a preços precisões entre outros. Dessa forma cada em aplicação deve-se analisar qual a opção mais viável não existindo sensor perfeito para todas as aplicações, mas sim sensor perfeito para uma aplicação específica.
 
