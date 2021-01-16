@@ -229,11 +229,12 @@ Antes de abordar as principais tecnologias, bem como os principais e mais atuais
 
 \subsection{As camadas do IOT}\label{As camadas do IOT}
 
-  Estrutura do IOT: baseada em três camadas\cite{5}
+  Estrutura do IOT: baseada em três camadas\cite{5} principais bem como uma camada intermediária:
     \begin{enumerate}
       \item A de percepção que seria uma camada de sensores, hardware, que obtém-se dados relevantes a respeito dos fenômenos meteorológicos tais como clima, temperatura do solo, umidade do ar, entre outros.
       \item A camada de comunicação, camada a qual é responsável por enviar os dados coletados pela camada de percepção supracitada para servidores ou aplicações na nuvem, de forma geral para algum tipo de armazenamento. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}\cite{camada2}.
       \item A de aplicação, camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados, nessa revisão bibliográfica essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar\cite{1}, ou em quais lugares da plantação tem doenças\cite{2}.
+      \item Midleware camada intermediária a qual
     \end{enumerate}
 
 \section{Materiais e Métodos}\label{Materiais e Métodos}
@@ -271,17 +272,17 @@ Perguntar
   \end{tabular}
 \end{table}
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=\textwidth]{artigosA.png}
-  \caption{\label{fig:artigosA.png}Ano de publicação dos artigos Qualis A}
-\end{figure}
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=\textwidth]{artigosA_pizza.png}
-  \caption{\label{fig:artigosA_pizza.png}Ano de publicação dos artigos Qualis A}
-\end{figure}
+%\begin{figure}[!htb]
+  %\centering
+  %\includegraphics[width=\textwidth]{artigosA.png}
+  %\caption{\label{fig:artigosA.png}Ano de publicação dos artigos Qualis A}
+%\end{figure}
+%
+%\begin{figure}[!htb]
+  %\centering
+  %\includegraphics[width=\textwidth]{artigosA_pizza.png}
+  %\caption{\label{fig:artigosA_pizza.png}Ano de publicação dos artigos Qualis A}
+%\end{figure}
 
 
 \section{Sensoreamento (camada de percepção)}\label{Sensoreamento do solo (camada de percepção)}
@@ -290,9 +291,18 @@ Tendo em vista a vasta variabilidade dos sensores utilizados nas diversas pesqui
 
 \subsection{Umidade do solo}\label{Umidade do solo}
 
+Segundo~\citeauthor{3}, os métodos mais aceitos para medição da umidade do solo são \textit{time domain reflectometry (TDR)} em português reflectometria no domínio do tempo, de custo elevado, e os métodos eletromagnéticos, mais comuns e baratos, sendo esses utilizados pela maioria dos sensores modernos de baixo custo.
+
+Analisando esses sensores de menor custo porém alta precisão o autor supracitado\cite{3} realizou diversos testes com os sensores EC-5 e ECH$_2$O-TE, chegando a seguinte conclusão, que medições realizadas a uma frequência de 70 MHz obtém-se dados expressivos, sendo essa a frequência mais eficiente, pois acima dela o gasto energético  e eletrônico não resultam em maior precisão.
+
 \section{Rede (camada de comunicação)}\label{Rede (camada de comunicação)}
 
-\section{Plataformas de tomada de decisão (camada de aplicação)}\label{Plataformas de tomada de decisão}%artigos 1 e 2
+\section{Plataformas de tomada de decisão (camada de aplicação)}\label{Plataformas de tomada de decisão}
+
+Explicar como cada plataforma de tomada de decisão é diferente e cada autor decide implementar da sua maneira, apesar de ter esforços para padronizações\cite{6}
+
+As plataformas de tomada de decisão abaixo tendem a resolver um único problema específico ou servem apenas para pesquisas
+
 Em relação às plataformas de tomada de decisão segundo a pesquisa de~\citeauthor{1} até onde sabe-se no ano de~\citeyear{1} não havia nenhuma plataforma ou \textit{framework} que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
 
 Considerando essa lacuna do conhecimento, desenvolveu-se uma ferramenta de suporte à decisão da temperatura do solo, ``\textit{temperature decision support tool}'', seguindo uma metodologia de cinco passos:
