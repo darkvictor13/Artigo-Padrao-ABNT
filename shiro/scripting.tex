@@ -227,6 +227,13 @@ Mostrar a relevância da pesquisa, como verificar o que o mundo tem feito deve n
 Antes de abordar as principais tecnologias, bem como os principais e mais atuais estudos relacionados a IOT, faz-se necessário elucidar alguns pontos.
 \subsection{O que é IOT}\label{O que é IOT}
 
+O termo \textit{Internet of Things (IOT)}, em português internet das coisas foi elaborado pelo britânico, Kevin Ashton, em 1999\cite{5} e se refere de forma geral a uma rede que conecta diversas ``coisas'' a internet, através de software, com o objetivo de trocar informações\cite{defIot}, tais ``coisas'' podem ser sensores, microcontroladores ou até mesmo objetos que nunca imaginamos tais como geladeiras, televisores, entre outros.
+
+\subsection{Por que usar IOT na agricultura}\label{Por que usar IOT na agricultura}
+Segundo \citeauthor{5} A agricultura é um dos setores que deve ser altamente influenciado pela internet das coisas pela necessidade de eficiência na gestão de recursos bem como o amadurecimento do conceito da agricultura de precisão, \textit{Precision agriculture}\cite{PrecisionAg}, que seria a arte e ciência de usar tecnologia avançada para aumentar a produção agrícola\cite{9}, a qual necessita das últimas tecnologias da área somado a muita computação para obter medições não invasivas em tempo real de forma rápida, precisa e confiável de diversas variáveis como (monitoramento do solo, do ar, da água, das plantas, dos animais, da irrigação\ldots)\cite{10} e para obter previsões apoiando assim a tomada de decisão, tais previsões serão abordadas na seção~\ref{Plataformas de tomada de decisão} e as medições precisas e confiáveis na seção~\ref{Sensoreamento do solo (camada de percepção)}.
+
+Outro fator importante que torna o setor agrícola tão favorável ao uso de internet das coisas é por serem grandes áreas que precisam de constante monitoramento e controle, nas palavras de \citeauthor{10} esses fatores o torna ``candidatos ideais''
+
 \subsection{As camadas do IOT}\label{As camadas do IOT}
 
   Estrutura do IOT: baseada em três camadas\cite{5} principais bem como uma camada intermediária:
@@ -291,17 +298,44 @@ Tendo em vista a vasta variabilidade dos sensores utilizados nas diversas pesqui
 
 \subsection{Umidade do solo}\label{Umidade do solo}
 
-Segundo~\citeauthor{3}, os métodos mais aceitos para medição da umidade do solo são \textit{time domain reflectometry (TDR)} em português reflectometria no domínio do tempo, de custo elevado, e os métodos eletromagnéticos, mais comuns e baratos, sendo esses utilizados pela maioria dos sensores modernos de baixo custo.
+A umidade do solo se refere à água presente na parte superior de um solo\cite{11}
 
-Analisando esses sensores de menor custo porém alta precisão o autor supracitado\cite{3} realizou diversos testes com os sensores EC-5 e ECH$_2$O-TE, chegando a seguinte conclusão, que medições realizadas a uma frequência de 70 MHz obtém-se dados expressivos, sendo essa a frequência mais eficiente, pois acima dela o gasto energético  e eletrônico não resultam em maior precisão.
+também falar que pode ser medido em outras profundidades do solo como no caso de \citeauthor{12}
+
+A literatura sobre a umidade do solo é muito extensa e está se
+desenvolvendo tão rapidamente que pode ser considerado ambicioso buscar apresentar o estado da arte no que diz respeito à pesquisa dessa variável-chave\cite{11}
+
+, e segundo~\citeauthor{3}, os métodos mais aceitos para medição da umidade do solo são \textit{time domain reflectometry (TDR)} em português reflectometria no domínio do tempo e os métodos que medem a capacitância, sendo esses utilizados pela maioria dos sensores modernos.
+
+Analisando esses sensores o autor supracitado\cite{3} realizou diversos testes alterando parâmetros como salinidade do solo, condutividade elétrica, temperatura entre outros, com os sensores EC-5 e ECH$_2$O-TE, chegando a seguinte conclusão, que medições realizadas a uma frequência de 70 MHz obtém-se dados expressivos, sendo essa a frequência mais eficiente, pois acima dela o gasto energético  e eletrônico não resultam em maior precisão. Sendo assim para cada sensor deve ser achado a frequência ideal de medição na qual o custo é minimizado e a precisão é aumentada.
+
+Esses sensores de umidade que medem a capacitância apesar de seguirem o mesmo principio de funcionamento, podem variar muito de preço e precisão por exemplo o caso seja necessário uma elevada precisão bem como outros dados tais como salinidade e temperatura será utilizado um sensor mais caro como o utilizado por \citeauthor{12} para medições precisas o suficiente para agendar irrigação por gotejamento, tais medições foram feitas com 2 sensores Hydra probes, um a 15 cm de profundidade e outro medindo desses 15 cm até a superficie.
+
+Como já comentado no parágrafo anterior variam muito de preço e funcionalidades. Sendo assim não existe um sensor perfeito ou universal para todo tipo de projeto, dessa maneira faz-se necessário que se avalie o orçamento bem como as funcionalidades e precisão exigidas, para auxiliar nisso criamos a tabela abaixo
+
+\begin{table}[!htb]
+  \centering
+  \caption{Comparando sensores de umidade do solo}
+  \begin{tabular}{lllll}
+    \hline
+    \textbf{Sensor} & \textbf{Preco} & \textbf{Temperatura} & \textbf{Salinidade} & \textbf{Umidade} \\ \hline
+    Hydra Probe     & 440 - 800 RS   & $\pm~1$\textdegree C & Mede                & Mede             \\
+                    &                &                      &                     &                  \\
+                    &                &                      &                     &                 
+  \end{tabular}
+\end{table}
 
 \section{Rede (camada de comunicação)}\label{Rede (camada de comunicação)}
 
 \section{Plataformas de tomada de decisão (camada de aplicação)}\label{Plataformas de tomada de decisão}
 
-Explicar como cada plataforma de tomada de decisão é diferente e cada autor decide implementar da sua maneira, apesar de ter esforços para padronizações\cite{6}
+Apesar de existir iniciativas que visem plataformas de tomada de decisão mais universais e interoperáveis tais como o mySense\cite{7} e o SenseTube\cite{6}. A maioria das plataformas de tomada de decisão abaixo tendem a resolver um único problema específico ou servem apenas para pesquisas
 
-As plataformas de tomada de decisão abaixo tendem a resolver um único problema específico ou servem apenas para pesquisas
+%que facilitem a criação de interfaces com o usuário final bem como a calibração de sensores
+
+%Explicar como cada plataforma de tomada de decisão é diferente e cada autor decide implementar da sua maneira, apesar de ter esforços para padronizações\cite{6}
+
+
 
 Em relação às plataformas de tomada de decisão segundo a pesquisa de~\citeauthor{1} até onde sabe-se no ano de~\citeyear{1} não havia nenhuma plataforma ou \textit{framework} que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
 
@@ -332,11 +366,6 @@ Para desenvolver essa plataforma o autor utilizou o sistema ``\textit{Sense Our 
 Com a estação concluída iniciou-se os testes, detectando em 96,9\% de maneira precisa em que houve o alerta de infecções. Através disso, os agricultores puderam aplicar o tratamento de controle de praga apenas quando necessário, reduzindo assim a quantidade de produtos químicos no solo, a quantidade de horas gastas para verificação e correção de doenças dentro do vinhedo bem como os custos da plantação.
 
 \section{Considerações Finais}
-Portanto, percebe-se a vasta área de aplicação de sistemas embarcados para implementações de fazendas inteligentes, tendo em vista que apenas abordando poucos tópicos tais como Plataformas de tomada de decisão, como citado na seção~\ref{Plataformas de tomada de decisão} e seus sensores, como citado na seção~\ref{Sensoreamento do solo (camada de percepção)}.
-
-Outrossim a partir dos sistemas de previsão tais como\cite{1},\cite{2} auxiliaram produtores agrícolas a terem uma maior eficiência na hora de plantar, colher e obter mais informações a respeito da plantação sem o trabalho de verificar manualmente.
-
-Em relação aos sensores, percebeu-se uma grande variedade tanto em relação a preços precisões entre outros. Dessa forma cada em aplicação deve-se analisar qual a opção mais viável não existindo sensor perfeito para todas as aplicações, mas sim sensor perfeito para uma aplicação específica.
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
