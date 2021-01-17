@@ -236,13 +236,13 @@ Outro fator importante que torna o setor agrícola tão favorável ao uso de int
 
 \subsection{As camadas do IOT}\label{As camadas do IOT}
 
-  Estrutura do IOT: baseada em três camadas\cite{5} principais bem como uma camada intermediária:
-    \begin{enumerate}
-      \item A de percepção que seria uma camada de sensores, hardware, que obtém-se dados relevantes a respeito dos fenômenos meteorológicos tais como clima, temperatura do solo, umidade do ar, entre outros.
-      \item A camada de comunicação, camada a qual é responsável por enviar os dados coletados pela camada de percepção supracitada para servidores ou aplicações na nuvem, de forma geral para algum tipo de armazenamento. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}\cite{camada2}.
-      \item A de aplicação, camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados, nessa revisão bibliográfica essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar\cite{1}, ou em quais lugares da plantação tem doenças\cite{2}.
+A estrutura do \textit{internet of things} é baseada em três camadas\cite{5} principais bem como uma camada intermediária, sendo:
+  \begin{itemize}
+      \item \textbf{Camada de percepção}: É uma camada que envolve sensores, hardware e obtém-se dados relevantes a respeito dos fenômenos meteorológicos tais como clima, temperatura do solo, umidade do ar, entre outros.
+      \item \textbf{Camada de comunicação}: Responsável por enviar os dados coletados pela camada de percepção supracitada para servidores ou aplicações na nuvem, de forma geral para algum tipo de armazenamento. Possuindo diversos protocolos de comunicação tais como \textbf{Ipv4} e \textbf{Ipv6}\cite{camada2}.
+      \item \textbf{Camada de aplicação}: camada a qual trás sentido aos dados coletados pelos sensores, pois é nesse momento que ocorre o processamento dos dados e a apresentação dos mesmos. Nessa revisão bibliográfica, essa camada será responsável principalmente por mostrar ao agricultor informações relevantes de forma simples e compreensível, bem como informá-lo qual o melhor momento para plantar\cite{1}, ou em quais lugares da plantação tem doenças\cite{2}.
       \item Midleware camada intermediária a qual
-    \end{enumerate}
+      \end{itemize}
 
 \section{Materiais e Métodos}\label{Materiais e Métodos}
 Perguntar
@@ -298,30 +298,26 @@ Tendo em vista a vasta variabilidade dos sensores utilizados nas diversas pesqui
 
 \subsection{Umidade do solo}\label{Umidade do solo}
 
-A umidade do solo se refere à água presente na parte superior de um solo\cite{11}
-
-também falar que pode ser medido em outras profundidades do solo como no caso de \citeauthor{12}
-
-A literatura sobre a umidade do solo é muito extensa e está se
-desenvolvendo tão rapidamente que pode ser considerado ambicioso buscar apresentar o estado da arte no que diz respeito à pesquisa dessa variável-chave\cite{11}
+A literatura sobre a umidade do solo é muito extensa e está se desenvolvendo rapidamente, tornando difícil apresentar o estado da arte\cite{11} no que diz respeito à essa variável-chave, sendo essa definida pela água presente no solo\cite{11}, normalmente na parte superior, porém em diversos casos práticos pode-se obter o valor da umidade em diferentes profundidades, visando maior precisão e compreensão de outros fatores meteorológicos, como apresentado no trabalho de~\citeauthor{12}.
 
 , e segundo~\citeauthor{3}, os métodos mais aceitos para medição da umidade do solo são \textit{time domain reflectometry (TDR)} em português reflectometria no domínio do tempo e os métodos que medem a capacitância, sendo esses utilizados pela maioria dos sensores modernos.
 
 Analisando esses sensores o autor supracitado\cite{3} realizou diversos testes alterando parâmetros como salinidade do solo, condutividade elétrica, temperatura entre outros, com os sensores EC-5 e ECH$_2$O-TE, chegando a seguinte conclusão, que medições realizadas a uma frequência de 70 MHz obtém-se dados expressivos, sendo essa a frequência mais eficiente, pois acima dela o gasto energético  e eletrônico não resultam em maior precisão. Sendo assim para cada sensor deve ser achado a frequência ideal de medição na qual o custo é minimizado e a precisão é aumentada.
 
-Esses sensores de umidade que medem a capacitância apesar de seguirem o mesmo principio de funcionamento, podem variar muito de preço e precisão por exemplo o caso seja necessário uma elevada precisão bem como outros dados tais como salinidade e temperatura será utilizado um sensor mais caro como o utilizado por \citeauthor{12} para medições precisas o suficiente para agendar irrigação por gotejamento, tais medições foram feitas com 2 sensores Hydra probes, um a 15 cm de profundidade e outro medindo desses 15 cm até a superficie.
+Esses sensores de umidade que medem a capacitância apesar de seguirem o mesmo princípio de funcionamento, podem variar muito de preço e precisão. Por exemplo, caso seja necessário uma elevada precisão bem como outros dados tais como salinidade e temperatura será utilizado um sensor mais caro como o utilizado por \citeauthor{12} para medições precisas o suficiente para agendar irrigação por gotejamento, tais medições foram feitas com 2 sensores Hydra probes, um a 15 cm de profundidade e outro medindo desses 15 cm até a superficie.
 
-Como já comentado no parágrafo anterior variam muito de preço e funcionalidades. Sendo assim não existe um sensor perfeito ou universal para todo tipo de projeto, dessa maneira faz-se necessário que se avalie o orçamento bem como as funcionalidades e precisão exigidas, para auxiliar nisso criamos a tabela abaixo
+Como já comentado no parágrafo anterior os sensores variam muito de preço e funcionalidades. Sendo assim não existe um sensor perfeito ou universal para todo tipo de projeto, dessa maneira faz-se necessário que se avalie o orçamento bem como as funcionalidades e precisão exigidas, para auxiliar nisso é apresentada a tabela~\ref{sensores umidade}. Nessa tabela é apresentado o nome do sensor seguido de seu preço, bem como o nível de precisão de 3 variáveis, a temperatura do solo, condutividade elétrica e umidade.
 
 \begin{table}[!htb]
   \centering
-  \caption{Comparando sensores de umidade do solo}
-  \begin{tabular}{lllll}
+  \caption{Comparando sensores de umidade do solo.}
+  \label{sensores umidade}
+  \begin{tabular}{|l|l|l|l|l|l|}
     \hline
-    \textbf{Sensor} & \textbf{Preco} & \textbf{Temperatura} & \textbf{Salinidade} & \textbf{Umidade} \\ \hline
-    Hydra Probe     & 440 - 800 RS   & $\pm~1$\textdegree C & Mede                & Mede             \\
-                    &                &                      &                     &                  \\
-                    &                &                      &                     &                 
+    \textbf{Sensor} & \textbf{Preço} & \textbf{Temp.} & \textbf{Cond. E} & \textbf{Umid.} & \textbf{Autor}  \\ \hline
+    Hydra Probe     & 440 - 800 RS   & $\pm~1$\textdegree C &  01 - 1.5 S/m    & 0.03 WFV           & \citeauthor{12}                \\
+                    &                &                      &                  &                  &                 \\
+                    &                &                      &                  &                  &                 
   \end{tabular}
 \end{table}
 
@@ -329,7 +325,7 @@ Como já comentado no parágrafo anterior variam muito de preço e funcionalidad
 
 \section{Plataformas de tomada de decisão (camada de aplicação)}\label{Plataformas de tomada de decisão}
 
-Apesar de existir iniciativas que visem plataformas de tomada de decisão mais universais e interoperáveis tais como o mySense\cite{7} e o SenseTube\cite{6}. A maioria das plataformas de tomada de decisão abaixo tendem a resolver um único problema específico ou servem apenas para pesquisas
+Apesar de existir iniciativas que visem plataformas de tomada de decisão mais universais e interoperáveis tais como o mySense\cite{7}(software livre) e o SenseTube\cite{6}(software proprietário), a maioria das plataformas de tomada de decisão abaixo tendem a resolver um único problema específico ou servem apenas para pesquisas
 
 %que facilitem a criação de interfaces com o usuário final bem como a calibração de sensores
 
@@ -337,7 +333,7 @@ Apesar de existir iniciativas que visem plataformas de tomada de decisão mais u
 
 
 
-Em relação às plataformas de tomada de decisão segundo a pesquisa de~\citeauthor{1} até onde sabe-se no ano de~\citeyear{1} não havia nenhuma plataforma ou \textit{framework} que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
+De acordo com a pesquisa de~\citeauthor{1} até onde sabe-se no ano de~\citeyear{1} não havia nenhuma plataforma ou \textit{framework} que baseando-se na temperatura do solo fornecesse dados dinâmicos para informar em tempo real decisões agronômicas dependentes do solo, tal como momento do plantio, irrigação entre outros.
 
 Considerando essa lacuna do conhecimento, desenvolveu-se uma ferramenta de suporte à decisão da temperatura do solo, ``\textit{temperature decision support tool}'', seguindo uma metodologia de cinco passos:
 \begin{enumerate}
