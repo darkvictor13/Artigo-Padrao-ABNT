@@ -325,7 +325,10 @@ Como já comentado no parágrafo anterior os sensores variam muito de preço e f
 
 Atualmente são implementadas muitas redes de sensores sem fio (RSSF) para auxiliar a agricultura de precisão\cite{6}, sendo assim esses sensores necessitam de comunicação para exportar os dados coletados da maneira mais eficiente, gastando a menor quantidade de recursos de rede, energia\cite{5}. Nessa seção iremos abordar alguns dos protocolos que ligam dispositivos IOT.
 
-\subsection{Bluetooth Low Energy}\label{Bluetooth Low Energy}
+\subsection{Bluetooth Low Energy (BLE)}\label{Bluetooth Low Energy (BLE)}
+Assim como o Bluetooth tradicional o BLE é um sistema de comunicação via rádio, porém arquitetado para operar com pouco gasto de energia\cite{siteBluetooth}, Segundo o estudo~\citeauthor{ble} de chegando ao ponto de dispositivos que possuem baterias do tamanho de moedas operarem por meses. E segundo o site oficial do Bluetooth\cite{siteBluetooth} o gasto de energia do BLE é de 1\% a 50\% do Bluetooth clássico.
+
+O BLE torna-se uma opção viável para comunicação de curta distancia pelo fato de operar com 3 canais\cite{ble} que buscam dispositivos próximos, restabelecendo a comunicação quando encontrados, apesar de possuir no total menos canais que o Bluetooth tradicional, cada canal possui a mesma frequência de transferência, 2.4 GHz, essas e outras características tornam o Bluetooth Low Energy mais simples e econômico para transferências robustas de dados a curtas distâncias\cite{ble}.
 
 \section{Plataformas de tomada de decisão (camada de aplicação)}\label{Plataformas de tomada de decisão}
 
