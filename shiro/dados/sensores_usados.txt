@@ -1,0 +1,13 @@
+01: Nenhum ele só pega os dados do governo da austrália (Bureau of Meteorology)
+02: 
+03: já foi citado
+04: 
+05: 
+06: 
+07: 
+08: o cara fala de medir tamanho das folhas
+09: temperatura ambiente = LM35, e vários sensores na pag 4
+10: É aquela revisão muito boa
+11: 
+12: capacitancia = Hydra probes, 5TM, reflectometria no domínio do tempo = TDR CS616
+13: as DHT11 digital temperature and humidity sensor, TGS 813 sensor for SO2 gas, PIR motion sensor, soil pH sensor, and EC-5 soil moisture sensor.
