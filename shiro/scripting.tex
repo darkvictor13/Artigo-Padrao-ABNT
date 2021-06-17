@@ -57,7 +57,7 @@ sumario=tradicional
 \graphicspath{{./images/} {/home/victor/Pictures/latex/}}
 
 % --- Informações de dados para CAPA e FOLHA DE ROSTO ---
-\titulo{\bfseries Sistemas Embarcados e suas aplicações na agricultura IOT: revisão bibliográfica}
+\titulo{\bfseries Sistemas Embarcados e suas aplicações na agricultura \textit{IOT}: revisão bibliográfica}
 \tituloestrangeiro{Embedded Systems and their applications in agriculture IOT: bibliographic review}
 
 
@@ -189,7 +189,7 @@ UNIOESTE
     Falar de parte do matérias e métodos
 
     %Utilizando como base de pesquisa um total de 13 artigos de Qualis A da revista Elsevier disponibilizados pelo orientador deste projeto
-    Após entender conceitos basilares da área, pode-se separar o IOT em 3 camadas, percepção, comunicação e aplicação. Sendo assim na camada de percepção observou-se uma grande gama de sensores, principalmente para a medição de variáveis relacionadas ao solo e ao ar. Após listar os sensores utilizados nas pesquisas avalia-se seus benefícios e seus casos de uso. No que se refere a camada de comunicação, apresentou-se dois importantes protocolos de comunicação, LoRaWAN~\texttrademark~e BLE, bem como suas vantagens e desvantagens. Por fim estudou-se aplicações práticas de sistemas que transformam os dados coletadas em informações uteis, dessa forma tornando a agricultura de precisão mais simples e prática.
+    Após entender conceitos basilares da área, pode-se separar o \textit{IOT} em 3 camadas, percepção, comunicação e aplicação. Sendo assim na camada de percepção observou-se uma grande gama de sensores, principalmente para a medição de variáveis relacionadas ao solo e ao ar. Após listar os sensores utilizados nas pesquisas avalia-se seus benefícios e seus casos de uso. No que se refere a camada de comunicação, apresentou-se dois importantes protocolos de comunicação, LoRaWAN~\texttrademark~e BLE, bem como suas vantagens e desvantagens. Por fim estudou-se aplicações práticas de sistemas que transformam os dados coletadas em informações úteis, dessa forma tornando a agricultura de precisão prática.
 
   \textbf{Palavras-chave}: Agricultura de precisão, Internet das coisas, Sensores.
 
@@ -197,7 +197,6 @@ UNIOESTE
 
   \noindent
 \end{resumoumacoluna}
-
 
 % resumo em inglês
 \renewcommand{\resumoname}{Abstract}
@@ -211,14 +210,6 @@ UNIOESTE
   \end{otherlanguage*}  
 \end{resumoumacoluna}
 
-%\cleardoublepage
-%\pdfbookmark[0]{\contentsname}{toc}
-%\tableofcontents*
-%\cleardoublepage
-%\listoffigures
-%\cleardoublepage
-%\listoftables
-
 %]  				% FIM DE ARTIGO EM DUAS COLUNAS
 % ---
 
@@ -226,19 +217,30 @@ UNIOESTE
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
 \textual
-%\setcounter{page}{1}
-%\pagenumbering{arabic}
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
 \section{Introdução}
 
-Introduzir o assunto de IOT, terminando com citação
+A agricultura de precisão combina o uso de informação e tecnologia para garantir as melhores práticas agrícolas\cite{9}, dessa forma para aplicação deste conceito, é necessário obter uma visão geral das tecnologias usadas nas pesquisas de ponta por todo o mundo, sendo esse o objetivo desta revisão bibliográfica.
 
-Mostrar a relevância da pesquisa, como verificar o que o mundo tem feito deve nos mostrar as melhores práticas bem como as últimas tecnologias disponíveis.
+Para atender este objetivo primeiramente pesquisou-se os conceitos básicos e dúvidas relacionados a internet das coisas, enumerados na seção~\ref{Definições}, sendo:
+\begin{enumerate}
+    \item O que é \textit{IOT}\@? Seção~\ref{O que é IOT}.
+    \item Por que usar \textit{IOT} na agricultura? Seção~\ref{Por que usar IOT na agricultura}.
+    \item Qual a estrutura \textit{IOT}? Seção~\ref{As camadas do IOT}
+\end{enumerate}
+
+Tendo respondido a estas perguntas, as seguintes seções do artigo discorrem sobre cada uma das camadas enumeradas na seção~\ref{As camadas do IOT}, descrevendo cada uma das tecnologias observadas nas pesquisas e listando suas vantagens desvantagens e casos de uso, sendo divididas da seguinte forma.
+Na seção~\ref{Sensoreamento do solo (camada de percepção)} observa-se os sensores utilizados para medir as principais variáveis que influenciam a agricultura de precisão.
+Já na seção~\ref{Rede (camada de comunicação)} lista-se.
+Por fim na seção~\ref{Plataformas de tomada de decisão}.
+
+%Mostrar a relevância da pesquisa, como verificar o que o mundo tem feito deve nos mostrar as melhores práticas bem como as últimas tecnologias disponíveis.
+%Observando os pontos supracitados na pesquisa
 
 \section{Definições}\label{Definições}
-Antes de abordar as principais tecnologias, bem como os principais e mais atuais estudos relacionados a IOT, faz-se necessário elucidar alguns pontos.
+Antes de abordar as principais tecnologias, bem como os principais e mais atuais estudos relacionados a \textit{IOT}, faz-se necessário elucidar alguns pontos.
 \subsection{O que é IOT}\label{O que é IOT}
 
 O termo \textit{Internet of Things (IOT)}, em português internet das coisas foi elaborado pelo britânico, Kevin Ashton, em 1999\cite{5} e se refere de forma geral a uma rede que conecta diversas ``coisas'' a internet, através de software, com o objetivo de trocar informações\cite{defIot}, tais ``coisas'' podem ser sensores, microcontroladores ou até mesmo objetos que nunca imaginamos tais como geladeiras, televisores, entre outros.
@@ -369,7 +371,7 @@ Apesar das vantagens de tal protocolo utilizado, pode ser difícil padronizar in
 
 \section{Rede (camada de comunicação)}\label{Rede (camada de comunicação)}
 
-Atualmente são implementadas muitas redes de sensores sem fio (RSSF) para auxiliar a agricultura de precisão\cite{6}, sendo assim esses sensores necessitam de comunicação para exportar os dados coletados da maneira mais eficiente, gastando a menor quantidade de recursos de rede e energia\cite{5}. Essa seção abordará alguns dos principais protocolos que ligam dispositivos IOT, sendo eles\cite{5}, Bluetooth Low Energy (BluetoothSmart) e LoRaWAN\texttrademark, porém existem muitos outros como Zigbee, Sigfox, 3G/4G/5G, 6LoWPAN, entre outros, a escolha para determinado protocolo depende de diversos fatores tais como distância, custo energético, sendo assim exitem protocolos melhores para determinadas situações\cite{7}.
+Atualmente são implementadas muitas redes de sensores sem fio (RSSF) para auxiliar a agricultura de precisão\cite{6}, sendo assim esses sensores necessitam de comunicação para exportar os dados coletados da maneira mais eficiente, gastando a menor quantidade de recursos de rede e energia\cite{5}. Essa seção abordará alguns dos principais protocolos que ligam dispositivos \textit{IOT}, sendo eles\cite{5}, Bluetooth Low Energy (BluetoothSmart) e LoRaWAN\texttrademark, porém existem muitos outros como Zigbee, Sigfox, 3G/4G/5G, 6LoWPAN, entre outros, a escolha para determinado protocolo depende de diversos fatores tais como distância, custo energético, sendo assim exitem protocolos melhores para determinadas situações\cite{7}.
 
 \subsection{Bluetooth Low Energy (BLE)}\label{Bluetooth Low Energy (BLE)}
 \subsubsection{Definindo}\label{Definindo}
